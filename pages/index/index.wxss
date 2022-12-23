@@ -1,0 +1,71 @@
+.content {
+  box-sizing: border-box;
+  background-color: #F1F4F9;
+}
+
+.content .top-box {
+  background-color: #fff;
+  padding: 0 31rpx 20rpx 31rpx;
+}
+
+.content .top-box swiper {
+  width: 100%;
+  height: 450rpx;
+  border-radius: 30rpx;
+  overflow: hidden;
+}
+
+.content .top-box swiper swiper-item .item {
+  height: 100%;
+}
+
+.content .top-box .content-list {
+  margin: 30rpx 0 0 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.content .top-box .content-list .content-list-item {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  font-size: 26rpx;
+}
+
+.content .top-box .content-list .content-list-item text {
+  padding: 10rpx 0 0 0;
+}
+
+.content .top-box .content-list .content-list-item image {
+  margin: 0 auto;
+  width: 80rpx;
+  height: 80rpx;
+  vertical-align: bottom;
+}
+
+.content .home-list-title {
+  margin: 20rpx 0 0 0;
+  font-size: 26rpx;
+}
+
+.content .home-list-title .title-box {
+  width: 200rpx;
+  height: 80rpx;
+  position: relative;
+}
+
+.content .home-list-title .title-box .img {
+  height: 100%;
+  width: 100%;
+}
+
+.content .home-list-title .title-box text {
+  position: absolute;
+  bottom: 10%;
+  left: 24rpx;
+}
+
+.content .home-list {
+  padding: 0 31rpx;
+  margin-top: 20rpx;
+}

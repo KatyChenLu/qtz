@@ -1,0 +1,156 @@
+.content .avatar {
+  padding: 50rpx 0 0 0;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.content .avatar .touxiang {
+  width: 70rpx;
+  height: 70rpx;
+  vertical-align: bottom;
+}
+
+.content .avatar .warnning {
+  width: 40rpx;
+  height: 40rpx;
+  position: absolute;
+  top: 20rpx;
+  right: 20rpx;
+}
+
+.content .rank {
+  font-size: 28rpx;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 60rpx;
+}
+
+.content .rank .left,
+.content .rank .right {
+  margin: 20rpx 0 40rpx 0;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.content .swiper-tab {
+  margin: 0 31rpx;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  width: calc(100% - 62rpx);
+  border-radius: 30rpx;
+  overflow: hidden;
+  font-size: 36rpx;
+}
+
+.content .swiper-tab .tabs {
+  width: 50%;
+  text-align: center;
+  background-color: #F1F4F9;
+  padding: 20rpx 0;
+}
+
+.content .swiper-tab .active {
+  background-color: #1E948A;
+  color: white;
+}
+
+.content .swiper-content {
+  margin-top: 20rpx;
+}
+
+.content .swiper-content swiper .userinfo {
+  padding: 0 32rpx;
+  box-sizing: border-box;
+}
+
+.content .swiper-content swiper .userinfo .user-box {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1rpx solid rgba(231, 231, 231, 0.6);
+  padding: 30rpx 0;
+  box-sizing: border-box;
+}
+
+.content .swiper-content swiper .userinfo .rank-left {
+  display: flex;
+  width: 70%;
+}
+
+.content .swiper-content swiper .userinfo .rank-left .rank-num {
+  font-weight: bolder;
+  width: 18%;
+  color: red;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.content .swiper-content swiper .userinfo .rank-left .rank-user {
+  display: flex;
+  width: 82%;
+}
+
+.content .swiper-content swiper .userinfo .rank-left .rank-user .rank-name {
+  font-size: 34rpx;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.content .swiper-content swiper .userinfo .rank-left .rank-user .rank-img {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  border: 1rpx solid #000;
+  margin: 0 30rpx 0 20rpx;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.content .swiper-content swiper .userinfo .rank-left .rank-user .rank-img image {
+  width: 100%;
+}
+
+.content .swiper-content swiper .userinfo .rank-score {
+  width: 30%;
+  font-size: 32rpx;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: right;
+  color: red;
+}
+
+.content .swiper-content swiper .userinfo .login-btn {
+  width: 688rpx;
+  height: 150rpx;
+  position: relative;
+}
+
+.content .swiper-content swiper .userinfo .login-btn .btn-in {
+  position: absolute;
+  height: 98rpx;
+  width: 680rpx;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 36rpx;
+  background-color: white;
+  color: #1E948A;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  border-radius: 10rpx;
+}
+
+.content .swiper-content swiper .userinfo .login-btn image {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+}

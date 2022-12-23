@@ -1,0 +1,32 @@
+<!-- index.html -->
+<view class="content">
+  <view class="top-box">
+    <swiper indicator-dots="{{ true }}">
+      <swiper-item wx:for="{{ swiperList }}" wx:key="id">
+        <view style="background-color: {{item.color}};" class="item">
+
+        </view>
+      </swiper-item>
+    </swiper>
+    <view class="content-list">
+      <view class="content-list-item" wx:for="{{ contentList }}" wx:key="id" bindtap="goSelect" data-path="{{item.path}}">
+        <image src="{{item.url}}" />
+        <text>{{item.name}}</text>
+      </view>
+    </view>
+  </view>
+  <view class="home-list-title">
+    <view class="title-box">
+      <image class="img" src="/static/acticveBaoming.png" />
+      <text>活动报名</text>
+    </view>
+
+  </view>
+  <view class="home-list">
+    <view class="home-list-box">
+      <view class="home-list-item">
+        <my-item wx:for="{{ 3 }}" wx:key="index"></my-item>
+      </view>
+    </view>
+  </view>
+</view>

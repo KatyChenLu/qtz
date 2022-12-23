@@ -1,0 +1,21 @@
+<!--pages/score_rank/more/index.wxml-->
+<view class="content">
+  <view class="user-box" wx:for="{{list}}" wx:key="index">
+    <view class="rank-left">
+      <view class="rank-num">
+        <text>{{index+1}}</text>
+      </view>
+      <view class="rank-user">
+        <view class="rank-img" wx:if="{{type == 0}}">
+          <image src="" mode="" />
+        </view>
+        <view class="rank-name">
+          <text>云天明</text>
+        </view>
+      </view>
+    </view>
+    <view class="rank-score">
+      <text>16565积分</text>
+    </view>
+  </view>
+</view>

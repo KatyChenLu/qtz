@@ -1,0 +1,15 @@
+<!--pages/volunteer/volunterr_info/index.wxml-->
+<view class="content">
+  <view class="item" wx:for="{{10}}" wx:key="index">
+    <view class="left">
+      <view class="title">
+        <text>新时代文明实践中心志愿服务总队</text>
+      </view>
+      <view class="date">
+        <text>时间：2021-01-01</text>
+      </view>
+    </view>
+    <view class="right">
+    <image src="/static/team_logo.png" mode="aspectFill"/></view>
+  </view>
+</view>

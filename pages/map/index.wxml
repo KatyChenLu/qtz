@@ -1,0 +1,11 @@
+<!--pages/map/index.wxml-->
+<view class="content">
+  <!-- 定义nav导航方法 -->
+<view bindtap="nav">
+      <image src="http://m.qpic.cn/psc?/V12iywoj0vjy8D/qWkkGOdvaHRbO0s2SzmJ0A6hNpVJHy5e8X9YJE5pp4uwGevHzWWheEAT7sJz7cZvbW8hMNK3SKrz4ZQ4Is.w5w!!/b&bo=IAAgAAAAAAADByI!&rf=viewer_4&t=5"></image>
+      <view>
+        <text>导航</text>
+      </view>
+  </view>
+
+</view>

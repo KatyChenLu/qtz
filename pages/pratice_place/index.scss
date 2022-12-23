@@ -1,0 +1,58 @@
+.content{
+  .map{
+    image{
+      width: 100%;
+    }
+  }
+  .area{
+    box-sizing: border-box;
+    font-size: 30rpx;
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    .area-item{
+      width: 23%;
+      text-align: center;
+      border: 1rpx solid #e0e0e0;
+      border-radius: 30rpx;
+      padding: 10rpx 0;
+      margin: 20rpx 4rpx 0 4rpx;
+    }
+  }
+  .area-detail{
+    width: 600rpx;
+    height: 800rpx;
+    background-color: white;
+    padding: 24rpx;
+    box-sizing: border-box;
+    .cancel{
+      width: 100%;
+      display: flex;justify-content: flex-end;
+      image{
+        width: 50rpx;height: 50rpx;
+      }
+    }
+    .area-title{
+      text-align: center;
+      font-weight: bold;
+      font-size: 34rpx;
+    }
+    .in{
+      display: flex;
+      font-size: 26rpx;
+      margin: 20rpx 0;
+      font-weight: bold;
+      position: relative;
+      .in-title{
+        display: flex;justify-content: center;flex-direction: column;
+      }
+      .nav{
+        right: 0;
+        position: absolute;
+      }
+      image{
+        width: 40rpx;height: 40rpx;
+      }
+    }
+  }
+}

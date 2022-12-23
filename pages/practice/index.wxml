@@ -1,0 +1,14 @@
+<!--pages/practice/index.wxml-->
+<view class="content">
+  <view class="content-item" wx:for="{{10}}" wx:key="index">
+    <view class="img">
+      <image src="/static/shequ.jpg" mode="aspectFill"/>
+    </view>
+    <view class="title">
+      <text>一图看懂！不同人群的健康防护指南来了快速扩大开始看大卡司打开克拉拉收到了</text>
+    </view>
+    <view class="date">
+      <text>2022-12-07</text>
+    </view>
+  </view>
+</view>

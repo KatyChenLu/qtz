@@ -1,0 +1,55 @@
+<!--pages/mine/index.wxml-->
+<view class="mine">
+  <view class="wan">
+
+  </view>
+  <view class="user-content">
+    <view class="userinfo">
+      <view class="top">
+        <view class="avatar">
+          <image class="avatar-in" src="" mode="" />
+        </view>
+        <view class="info">
+          <view class="nickname">
+            <view class="my-name">
+              <text>MR</text>
+            </view>
+            <view class="wanshan">
+              <text>未完善资料</text>
+            </view>
+          </view>
+          <view class="phone">
+            <text>13826821655</text>
+          </view>
+          <view class="myhome">
+            <view class="hashome" wx:if="{{ isHome }}">
+              <text>梁山的</text>
+            </view>
+            <view class="nohome" wx:else>
+              <text>你尚未加入家庭</text>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="bottom">
+        <view class="bottom-box">
+          <view class="botton-item"></view>
+        </view>
+        <view class="check-score"></view>
+      </view>
+    </view>
+  </view>
+  <view class="select-list">
+    <view class="['list-item',  {{item.id !== selectList.length - 1? 'bottom':'' }}]" wx:for="{{selectList}}" wx:key="id">
+      <view class="select-img">
+        <image src="{{item.img}}" />
+      </view>
+      <view class="select-title">
+        <text>{{item.name}}</text>
+      </view>
+      <view class="go">
+        <image src="/static/foward.png" />
+      </view>
+    </view>
+  </view>
+</view>

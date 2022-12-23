@@ -1,0 +1,28 @@
+<!--pages/login/index.wxml-->
+<view class="content">
+  <view class="logo">
+    <image src="/static/logo.png" mode="widthFix" />
+  </view>
+  <view class="login-form">
+    <view class="login-item">
+      <view class="login-img">
+        <image src="/static/phone.png" />
+      </view>
+      <input class="ipt" type="number" placeholder="请输入手机号" />
+    </view>
+    <view class="login-item">
+      <view class="login-img">
+        <image src="/static/password.png" />
+      </view>
+      <input class="ipt" type="number" placeholder="请输获取验证码" />
+      <view class="get-code">
+        <text wx:if="{{!isGetting}}" bindtap="getCode">获取验证码</text>
+        <text wx:else="">{{count}}</text>
+      </view>
+    </view>
+    <view class="login-btn">
+      <image src="/static/login.png" />
+      <view class="btn-in"> <text>登录</text></view>
+    </view>
+  </view>
+</view>

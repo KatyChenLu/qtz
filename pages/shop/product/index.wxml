@@ -1,0 +1,44 @@
+<!--pages/shop/product/index.wxml-->
+<view class="content">
+  <view class="wan">
+
+  </view>
+  <view class="swiper">
+    <swiper class="swiper-box" current="{{current}}">
+      <swiper-item>
+        <image src="/static/shala.jpeg" mode="aspectFill" />
+      </swiper-item>
+    </swiper>
+  </view>
+  <view class="info">
+    <view class="left">
+      <view class="title">
+        <text>新时代文明实践绸缎袋</text>
+      </view>
+      <view class="rest">
+        <view class="rest-info">
+          <text>库存:0件</text>
+        </view>
+        <view class="rest-date">
+          结束时间:2022-12-24 18:37:15
+        </view>
+      </view>
+    </view>
+    <view class="right">
+      <view class="hasswap">
+        <text>已兑换7件</text>
+      </view>
+      <view class="score">
+        <text>780积分</text>
+      </view>
+    </view>
+  </view>
+  <view class="detail">
+    <view class="detail-title">
+      <text>商品详情</text>
+    </view>
+    <view class="swap-btn">
+      <text>立即兑换</text>
+    </view>
+  </view>
+</view>

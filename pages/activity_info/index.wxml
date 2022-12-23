@@ -1,0 +1,92 @@
+<!--pages/activity_info/index.wxml-->
+<view class="activity-info">
+  <view class="swiper-box">
+    <swiper indicator-dots="{{ true }}">
+      <swiper-item wx:for="{{ swiperList }}" wx:key="id">
+        <view style="background-color: {{item.color}};" class="item"></view>
+      </swiper-item>
+    </swiper>
+  </view>
+  <view class="activity-box">
+    <view class="top">
+      <view class="left">
+        <text>茶山新时代文明实践|20221223(下午)协助茶山医院疫苗接种活动</text>
+      </view>
+      <view class="right">
+        <text class="score">40</text>
+        <text class="score-title">积分</text>
+      </view>
+    </view>
+    <view class="bottom">
+      <view class="left">
+        <view class="info-item">
+          <image src="/static/avatar.png" />
+          <view class="progress">
+            <view class="progress-in">
+              <view class="progressing" style="width:{{progressWidth}}px;">
+              </view>
+            </view>
+          </view>
+          <view class="count">
+            <text class="count-detail">{{ hasbaoming }}/{{baoming}}人</text>
+          </view>
+        </view>
+        <view class="info-item" wx:for="{{infoList}}" wx:key="id">
+          <image src="{{item.img}}" />
+          <view class="count">
+            <text class="count-detail">{{item.name}}</text>
+          </view>
+        </view>
+      </view>
+      <view class="right">
+        <view class="img" bindtap="goMap">
+          <image src="/static/nav.png" />
+        </view>
+        <view class="nav-title" bindtap="goMap">
+          <text>导航</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="home-list-title">
+    <view class="title-box">
+      <image class="img" src="/static/acticveBaoming.png" />
+      <text>活动介绍</text>
+    </view>
+  </view>
+  <view class="btn" bindtap="openDetail">
+    <text>活动报名</text>
+  </view>
+  <van-popup show="{{show}}" close-on-click-overlay="{{true}}" bind:click-overlay="closePopup" round="{{true}}">
+    <view class="form">
+      <view class="cancel">
+        <image src="/static/cancel.png" bindtap="closePopup" />
+      </view>
+      <view class="form-title">
+        <text>请填写以下信息进行活动报名</text>
+      </view>
+      <view class="form-detail">
+        <view class="form-item">
+          <view class="label">
+            <text>姓名：</text>
+          </view>
+          <view class="ipt">
+            <input type="text"/>
+          </view>
+        </view>
+        <view class="form-item">
+          <view class="label">
+            <text>联系电话：</text>
+          </view>
+          <view class="ipt">
+            <input type="number"/>
+          </view>
+        </view>
+      </view>
+      <view class="login-btn" >
+              <image src="/static/login.png" />
+              <view class="btn-in"> <text>提交信息</text></view>
+      </view>
+    </view>
+  </van-popup>
+</view>

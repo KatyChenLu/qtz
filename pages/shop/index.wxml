@@ -1,0 +1,50 @@
+<!--pages/shop/index.wxml-->
+<view class="content">
+  <view class="score">
+    <view class="tips" bindtap="openSwap">
+      <view class="tips-text"> <text>兑换须知</text></view>
+      <view class="tips-img">
+        <image src="/static/go.png" />
+      </view>
+    </view>
+    <view class="score-detail">
+      <view class="score-count">
+        <text>10</text>
+      </view>
+      <view class="score-title">
+        <text>兑换积分</text>
+      </view>
+    </view>
+  </view>
+  <view class="shop">
+    <view class="shop-select">
+      <view class="select-item" wx:for="{{shopSelect}}" wx:key="id" bindtap="changeSelect" data-index="{{item.id}}">
+        <text class="{{current==item.id?'active':''}}">{{ item.name }}</text>
+      </view>
+    </view>
+    <scroll-view class="tag-list" scroll-x="{{true}}">
+      <view class="['tag-item',{{tagCurrent == item.id ? 'tag-active' : ''}}]" wx:for="{{tagList}}" wx:key="id" bindtap="changeTag" data-index="{{item.id}}">
+        <text>{{item.name}}</text>
+      </view>
+    </scroll-view>
+    <scroll-view class="shop-box" scroll-y="{{true}}">
+      <view class="shop-list">
+        <view class="list-item" wx:for="{{3}}" wx:key="index" bindtap="goProduct">
+          <image src="/static/shala.jpeg" mode="aspectFill" />
+          <view class="item-title">
+            <text>百利沙拉汁(千岛口味)asdasdasdasd</text>
+          </view>
+          <view class="item-bottom">
+            <view class="price">
+              <text>200积分</text>
+            </view>
+            <view class="rest">
+              <text>剩余库存1126个</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+
+  </view>
+</view>

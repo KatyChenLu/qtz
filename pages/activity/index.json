@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "my-item":"/pages/index/activity/index"
+  },
+  "navigationBarTitleText": "活动报名"
+  
+}

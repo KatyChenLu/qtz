@@ -1,0 +1,108 @@
+@mixin center {
+  display: flex;justify-content: center;flex-direction: column;
+}
+.content{
+  box-sizing: border-box;
+  background-color: #F1F4F9;
+  height: 100vh;
+  overflow: scroll;
+  position: relative;
+  .tabs{
+    color: #999999;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 2;
+    font-weight: bold;
+    background-color: white;
+    padding: 30rpx 31rpx;
+    box-sizing: border-box;
+    font-size: 36rpx;
+    text{
+      padding: 0rpx 30rpx 0rpx 0;
+      box-sizing: border-box;
+    }
+    .active{
+      color: #000;
+    }
+  }
+  .box{
+    margin-top: 8rpx;
+    background-color: white;
+    padding:  31rpx;
+    box-sizing: border-box;
+    .label{
+      font-size: 32rpx;
+      font-weight: bolder;
+      @include center();
+    }
+    .upload-img{
+      margin-top: 30rpx;
+      image{width: 230rpx;height: 230rpx;}
+    }
+    .image-list{
+      display: flex;
+      flex-wrap: wrap;
+      .image-item{width: 150rpx;height: 150rpx;margin: 20rpx 20rpx 0 0;}
+      
+    }
+    .tips{
+      margin-top: 20rpx;
+      font-size: 32rpx;
+      color: #999999;
+    }
+    .unit{
+      margin-top: 50rpx;
+      display: flex;
+      .unit-info{
+        @include center();
+        font-size: 32rpx;
+        image{width: 30rpx;height: 30rpx;}
+        .unit-img{@include center();}
+        .unit-box{
+          border: 1rpx solid #999999;
+          padding: 20rpx;
+          box-sizing: border-box;
+          border-radius: 15rpx;
+          display: flex;
+          .unit-info-detail{@include center();}
+        }
+      }
+    }
+    .editor{
+      margin-top: 50rpx;
+      .textarea{
+        margin-top: 20rpx;
+        font-size: 32rpx;
+        padding: 24rpx;
+        box-sizing: border-box;
+        border-radius: 15rpx;
+        background-color: #F4F4F4;
+      }
+    }
+    .btn{
+      background-color: #1E948A;color: white;
+      text-align: center;
+      padding: 20rpx 0;
+      border-radius: 20rpx;
+      margin-top: 30rpx;
+    }
+  }
+  .record{
+    padding: 0 31rpx;
+    box-sizing: border-box;
+    margin-top: 8rpx;
+
+    
+    .record-item{
+      margin-bottom: 20rpx;
+      border-radius: 15rpx;
+      box-shadow: 0 5rpx 10rpx rgba($color: #504f4f, $alpha:.1);
+      background-color: white;
+      font-size: 32rpx;
+      display: flex;
+      justify-content: center;flex-direction: column;
+      padding: 24rpx;box-sizing: border-box;
+    }
+  }
+}

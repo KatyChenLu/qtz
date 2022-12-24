@@ -1,0 +1,91 @@
+.content .content-box {
+  padding: 0 32rpx;
+  box-sizing: border-box;
+}
+
+.content .avatar {
+  margin-top: 40rpx;
+  display: flex;
+  justify-content: space-between;
+}
+
+.content .avatar .user-name {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.content .avatar .user-name .detail {
+  font-size: 34rpx;
+  font-weight: bold;
+  padding: 0 0 0 20rpx;
+}
+
+.content .avatar .user-name .has-done {
+  font-size: 24rpx;
+  margin-top: 20rpx;
+}
+
+.content .avatar .user-name .has-done text {
+  padding: 6rpx 40rpx;
+  border-radius: 50rpx;
+}
+
+.content .avatar .user-name .has-done .no {
+  color: red;
+  background-color: #fae5e5;
+  border: 1rpx solid red;
+}
+
+.content .avatar .user-name .has-done .has {
+  background-color: #E5FFE1;
+  color: #32AD5B;
+  border: 1rpx solid #32AD5B;
+}
+
+.content .avatar .img image {
+  width: 120rpx;
+  height: 120rpx;
+  border: 1rpx solid #000;
+  border-radius: 50%;
+}
+
+.content .form-content .radio-box {
+  display: flex;
+}
+
+.content .form-content .radio-box .radio-one {
+  margin: 0 20rpx 0 0;
+}
+
+.content .form-content picker .select-box {
+  display: flex;
+}
+
+.content .form-content picker .select-box .select-img {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin-left: 10rpx;
+}
+
+.content .form-content picker .select-box .select-img image {
+  width: 30rpx;
+  height: 30rpx;
+}
+
+.content .tips {
+  margin: 30rpx 0;
+  color: red;
+  font-size: 28rpx;
+}
+
+.content .btn {
+  background-color: #1E948A;
+  bottom: 0;
+  width: 100%;
+  color: white;
+  text-align: center;
+  font-size: 32rpx;
+  padding: 40rpx 0;
+}

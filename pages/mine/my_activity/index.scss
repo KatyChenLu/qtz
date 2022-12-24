@@ -1,0 +1,94 @@
+.content {
+  padding: 0 32rpx;
+  box-sizing: border-box;
+  height: 100vh;
+  background-color: #F1F4F9;
+
+  .my-item {
+    box-shadow: 0 0 10rpx #b1abab;
+    padding: 24rpx;
+    box-sizing: border-box;
+    border-radius: 20rpx;
+    margin-bottom: 40rpx;
+    position: relative;
+
+    image {
+      width: 100%;
+    }
+
+    .back {
+      width: 100% !important;
+      height: 70rpx;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      z-index: 2;
+    }
+
+    .item-box {
+      display: flex;
+      position: relative;
+      z-index: 1;
+
+      .item-left {
+        width: 70%;
+
+        .left-title {
+          font-size: 28rpx;
+          font-weight: bold;
+          margin: 10rpx 0;
+        }
+
+        .item-info {
+          color: #797979;
+          ;
+          display: flex;
+          font-size: 28rpx;
+
+          image {
+            width: 45rpx;
+            height: 45rpx;
+            margin: 0 10rpx 0 0;
+          }
+
+          .info-text {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+
+            .info-score {
+              color: #FF9C00;
+            }
+          }
+        }
+      }
+
+      .item-right {
+        width: 30%;
+        display: flex;
+        justify-content: flex-end;
+        flex-direction: column;
+        font-size: 32rpx;
+
+        .btn {
+          color: white;
+          display: flex;
+          justify-content: flex-end;
+          margin: 20rpx 0 0 0;
+          text{
+            padding: 10rpx 20rpx;
+            box-sizing: border-box;
+            border-radius: 15rpx;
+          }
+        }
+
+        .code {
+          text {
+            background-color: red;
+          }
+        }
+        .cancel {text{background-color: #1E948A;}}
+      }
+    }
+  }
+}

@@ -4,7 +4,7 @@
 
   </view>
   <view class="user-content">
-    <view class="userinfo">
+    <view class="userinfo" bindtap="goUser" data-index="0">
       <view class="top">
         <view class="avatar">
           <image class="avatar-in" src="" mode="" />
@@ -33,14 +33,24 @@
       </view>
       <view class="bottom">
         <view class="bottom-box">
-          <view class="botton-item"></view>
+          <view class="bottom-item">
+            <view class="item-in"> <text class="title">兑换积分：</text><text class="count">40</text></view>
+          </view>
+          <view class="bottom-item">
+            <view class="item-in">
+              <text class="title">年度积分：</text><text class="count">40</text>
+            </view>
+          </view>
+
         </view>
-        <view class="check-score"></view>
+        <view class="check-score">
+          <text catchtap="checkScore">查看积分明细</text>
+        </view>
       </view>
     </view>
   </view>
   <view class="select-list">
-    <view class="['list-item',  {{item.id !== selectList.length - 1? 'bottom':'' }}]" wx:for="{{selectList}}" wx:key="id">
+    <view class="['list-item',  {{item.id !== selectList.length - 1? 'bottom':'' }}]" wx:for="{{selectList}}" wx:key="id" bindtap="goUser" data-index="{{item.id}}">
       <view class="select-img">
         <image src="{{item.img}}" />
       </view>

@@ -1,0 +1,71 @@
+<!--pages/mine/user/index.wxml-->
+<view class="content">
+  <view class="content-box">
+    <view class="avatar">
+      <view class="user-name">
+        <view class="detail">
+          <text>MR</text>
+        </view>
+        <view class="has-done">
+          <text class="has" wx:if="{{1 === 2}}">已完善</text>
+          <text class="no" wx:else>未完善资料</text>
+        </view>
+      </view>
+      <view class="img">
+        <image src="" mode="" />
+      </view>
+    </view>
+    <view class="form-content">
+      <my-form data="{{form.username}}">
+        <input type="text" value="{{form.username.default}}" />
+      </my-form>
+      <my-form data="{{form.sex}}">
+        <van-radio-group value="{{ form.sex.default }}" bind:change="onChange">
+          <view class="radio-box">
+            <van-radio name="0" class="radio-one">男</van-radio>
+            <van-radio name="1">女</van-radio>
+          </view>
+        </van-radio-group>
+      </my-form>
+      <my-form data="{{form.phone}}">
+        <input type="number" value="{{form.phone.default}}" placeholder="请填写手机号" />
+      </my-form>
+      <my-form data="{{form.family}}">
+        <view class="family">
+          <text>{{form.family.default}}</text>
+        </view>
+      </my-form>
+      <my-form data="{{form.address}}">
+        <picker mode="selector">
+          <view class="select-box">
+            <view class="select-detail">
+              <text>请选择</text>
+            </view>
+            <view class="select-img">
+              <image src="/static/foward.png" />
+            </view>
+          </view>
+        </picker>
+      </my-form>
+      <my-form data="{{form.contactAddress}}">
+        <input type="text" placeholder="请填写地址" />
+      </my-form>
+      <my-form data="{{form.idCard}}">
+        <input type="idcard" placeholder="请填写身份证号码" />
+      </my-form>
+      <my-form data="{{form.ergentUser}}">
+        <input type="text" placeholder="请填写联系人" />
+      </my-form>
+      <my-form data="{{form.ergentPhone}}">
+        <input type="text" placeholder="请填写联系人电话" />
+      </my-form>
+    </view>
+    <view class="tips">
+      <text>*注：*注为必填项，首次完善资料可得5积分，请如实填写个人信息，便于奖品兑换和领取</text>
+    </view>
+  </view>
+
+  <view class="btn" bindtap="save">
+    <text>保存</text>
+  </view>
+</view>

@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "my-form":"./form/index"
+  },
+  "navigationBarTitleText": "个人信息"
+}

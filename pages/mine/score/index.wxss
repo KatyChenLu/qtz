@@ -1,0 +1,148 @@
+.content {
+  box-sizing: border-box;
+  background-color: #F1F4F9;
+  height: 100vh;
+  overflow: scroll;
+  position: relative;
+}
+
+.content .tabs {
+  color: #999999;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 2;
+  font-weight: bold;
+  background-color: white;
+  padding: 30rpx 31rpx;
+  box-sizing: border-box;
+  font-size: 36rpx;
+}
+
+.content .tabs text {
+  padding: 0rpx 30rpx 0rpx 0;
+  box-sizing: border-box;
+}
+
+.content .tabs .active {
+  color: #000;
+}
+
+.content .box {
+  margin-top: 8rpx;
+  background-color: white;
+  padding: 31rpx;
+  box-sizing: border-box;
+}
+
+.content .box .label {
+  font-size: 32rpx;
+  font-weight: bolder;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.content .box .upload-img {
+  margin-top: 30rpx;
+}
+
+.content .box .upload-img image {
+  width: 230rpx;
+  height: 230rpx;
+}
+
+.content .box .image-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.content .box .image-list .image-item {
+  width: 150rpx;
+  height: 150rpx;
+  margin: 20rpx 20rpx 0 0;
+}
+
+.content .box .tips {
+  margin-top: 20rpx;
+  font-size: 32rpx;
+  color: #999999;
+}
+
+.content .box .unit {
+  margin-top: 50rpx;
+  display: flex;
+}
+
+.content .box .unit .unit-info {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  font-size: 32rpx;
+}
+
+.content .box .unit .unit-info image {
+  width: 30rpx;
+  height: 30rpx;
+}
+
+.content .box .unit .unit-info .unit-img {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.content .box .unit .unit-info .unit-box {
+  border: 1rpx solid #999999;
+  padding: 20rpx;
+  box-sizing: border-box;
+  border-radius: 15rpx;
+  display: flex;
+}
+
+.content .box .unit .unit-info .unit-box .unit-info-detail {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.content .box .editor {
+  margin-top: 50rpx;
+}
+
+.content .box .editor .textarea {
+  margin-top: 20rpx;
+  font-size: 32rpx;
+  padding: 24rpx;
+  box-sizing: border-box;
+  border-radius: 15rpx;
+  background-color: #F4F4F4;
+}
+
+.content .box .btn {
+  background-color: #1E948A;
+  color: white;
+  text-align: center;
+  padding: 20rpx 0;
+  border-radius: 20rpx;
+  margin-top: 30rpx;
+}
+
+.content .record {
+  padding: 0 31rpx;
+  box-sizing: border-box;
+  margin-top: 8rpx;
+}
+
+.content .record .record-item {
+  margin-bottom: 20rpx;
+  border-radius: 15rpx;
+  box-shadow: 0 5rpx 10rpx rgba(80, 79, 79, 0.1);
+  background-color: white;
+  font-size: 32rpx;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding: 24rpx;
+  box-sizing: border-box;
+}

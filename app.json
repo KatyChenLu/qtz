@@ -13,7 +13,10 @@
     "pages/score_rank/more/index",
     "pages/volunteer/volunterr_info/index",
     "pages/shop/younow/index",
-    "pages/shop/product/index"
+    "pages/shop/product/index",
+    "pages/mine/user/index",
+    "pages/mine/my_activity/index",
+    "pages/mine/score/index"
   ],
   "tabBar": {
     "color": "#000000",
@@ -58,12 +61,9 @@
     }
   },
   "usingComponents": {
-    "van-popup": "@vant/weapp/popup/index"
+    "van-popup": "@vant/weapp/popup/index",
+    "van-radio": "@vant/weapp/radio/index",
+    "van-radio-group": "@vant/weapp/radio-group/index"
   },
-  "plugins": {
-    "chooseLocation": {
-      "version": "1.0.10",
-      "provider": "wx76a9a06e5b4e693e"
-    }
-  }
+  "plugins": {}
 }

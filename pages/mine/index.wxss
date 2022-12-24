@@ -102,6 +102,41 @@
   text-decoration: underline;
 }
 
+.mine .user-content .userinfo .bottom {
+  display: flex;
+  font-size: 26rpx;
+  justify-content: space-between;
+}
+
+.mine .user-content .userinfo .bottom .bottom-box {
+  width: 60%;
+  display: flex;
+  font-size: 24rpx;
+  justify-content: space-between;
+}
+
+.mine .user-content .userinfo .bottom .bottom-box .bottom-item {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.mine .user-content .userinfo .bottom .bottom-box .bottom-item .count {
+  color: orange;
+}
+
+.mine .user-content .userinfo .bottom .check-score {
+  width: 32%;
+  text-align: center;
+  color: #F1F4F9;
+}
+
+.mine .user-content .userinfo .bottom .check-score text {
+  background-color: #1E948A;
+  padding: 15rpx 20rpx;
+  border-radius: 20rpx;
+}
+
 .mine .select-list {
   background-color: white;
   position: relative;

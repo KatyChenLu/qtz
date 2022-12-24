@@ -1,0 +1,40 @@
+<!--pages/mine/my_activity/index.wxml-->
+<view class="content">
+  <view class="my-item" bindtap="go">
+    <image src="/static/shequ.jpg" mode="aspectFill" />
+    <view class="item-box">
+      <view class="item-left">
+        <view class="left-title">
+          <text>茶山新时代文明实践|20221223(下午)协助茶山医院疫苗接种活动</text>
+        </view>
+        <view class="item-info">
+          <text>报名成功</text>
+        </view>
+        <view class="item-info">
+          <view class="info-img">
+            <image src="/static/score.png" />
+          </view>
+          <view class="info-text">
+            <text class="info-score">获得40积分</text>
+          </view>
+        </view>
+        <view class="item-info">
+          <view class="info-img">
+            <image src="/static/address.png" />
+          </view>
+          <view class="info-text">
+            <text>茶山医院</text>
+          </view>
+        </view>
+      </view>
+      <view class="item-right">
+        <view class="code btn">
+          <text catchtap="scanCode">扫码签到</text>
+        </view>
+        <view class="cancel btn" >
+          <text catchtap="cancelBaoming">取消报名</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

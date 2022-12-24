@@ -90,6 +90,33 @@
           }
         }
       }
+      .bottom{
+        display: flex;
+        font-size: 26rpx;
+        justify-content: space-between;
+        .bottom-box{
+          width: 60%;
+          display: flex;
+          font-size: 24rpx;
+          justify-content: space-between;
+          .bottom-item{
+            display: flex;justify-content: center;flex-direction: column;
+            .count{
+              color: orange;
+            }
+          }
+        }
+        .check-score{
+          width: 32%;
+          text-align: center;
+          color: #F1F4F9;
+          text{
+            background-color: #1E948A;
+            padding: 15rpx 20rpx;
+            border-radius: 20rpx;
+          }
+        }
+      }
     }
   }
 

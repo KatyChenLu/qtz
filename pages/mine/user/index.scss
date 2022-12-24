@@ -1,0 +1,98 @@
+@mixin center {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.content {
+
+  .content-box{
+    padding: 0 32rpx;
+    box-sizing: border-box;
+  }
+  .avatar {
+    margin-top: 40rpx;
+    display: flex;
+    justify-content: space-between;
+
+    .user-name {
+      @include center();
+
+      .detail {
+        font-size: 34rpx;
+        font-weight: bold;
+        padding: 0 0 0 20rpx;
+      }
+
+      .has-done {
+
+        font-size: 24rpx;
+        margin-top: 20rpx;
+
+        text {
+
+          padding: 6rpx 40rpx;
+          border-radius: 50rpx;
+
+        }
+
+        .no {
+          color: red;
+          background-color: rgb(250, 229, 229);
+          border: 1rpx solid red;
+        }
+
+        .has {
+          background-color: #E5FFE1;
+          color: #32AD5B;
+          border: 1rpx solid #32AD5B;
+        }
+      }
+    }
+
+    .img {
+      image {
+        width: 120rpx;
+        height: 120rpx;
+        border: 1rpx solid #000;
+        border-radius: 50%;
+      }
+    }
+  }
+
+  .form-content {
+    .radio-box{
+      display: flex;
+      .radio-one{margin: 0 20rpx 0 0;}
+    }
+    picker {
+      .select-box {
+        display: flex;
+        .select-img {
+          display: flex;
+          justify-content: center;
+          flex-direction: column;
+          margin-left: 10rpx;
+          image {
+            width: 30rpx;
+            height: 30rpx;
+          }
+        }
+      }
+    }
+  }
+  .tips{
+    margin: 30rpx 0;
+    color: red;
+    font-size: 28rpx;
+  }
+  .btn{
+    background-color: #1E948A;
+    bottom: 0;
+    width: 100%;
+    color: white;
+    text-align: center;
+    font-size: 32rpx;
+    padding: 40rpx 0;
+  }
+}

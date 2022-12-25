@@ -1,0 +1,5 @@
+<!--components/btn/index.wxml-->
+<view class="login-btn">
+    <image src="/static/login.png" />
+    <view class="btn-in"> <text>{{title}}</text></view>
+</view>

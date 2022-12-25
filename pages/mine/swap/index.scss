@@ -1,0 +1,37 @@
+.content{
+  background-color: #F1F4F9;
+  height: 100vh;
+  overflow: auto;
+  position: relative;
+  .tabs{
+    color: #999999;
+    width: 100%;
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    font-weight: bold;
+    background-color: white;
+    padding: 30rpx 31rpx;
+    box-sizing: border-box;
+    font-size: 36rpx;
+    text{
+      padding: 0rpx 30rpx 0rpx 0;
+      box-sizing: border-box;
+    }
+    .active{
+      color: #000;
+    }
+  }
+  .box{
+    background-color: white;
+    position: relative;
+    margin-top: 8rpx;
+    .no-data{
+      text-align: center;
+      position: relative;
+      color: #999999;
+      font-size: 30rpx;
+      top: 50%;transform: translateY(-50%);
+    }
+  }
+}

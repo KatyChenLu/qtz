@@ -16,7 +16,13 @@
     "pages/shop/product/index",
     "pages/mine/user/index",
     "pages/mine/my_activity/index",
-    "pages/mine/score/index"
+    "pages/mine/score/index",
+    "pages/mine/swap/index",
+    "pages/mine/address/index",
+    "pages/mine/feedback/index",
+    "pages/mine/score_detail/index",
+    "pages/practice/pratice_detail/index",
+    "pages/volunteer/detail/index"
   ],
   "tabBar": {
     "color": "#000000",
@@ -63,7 +69,9 @@
   "usingComponents": {
     "van-popup": "@vant/weapp/popup/index",
     "van-radio": "@vant/weapp/radio/index",
-    "van-radio-group": "@vant/weapp/radio-group/index"
+    "van-radio-group": "@vant/weapp/radio-group/index",
+    "my-btn": "/components/btn/index",
+    "my-nodata": "/components/no_data/index"
   },
   "plugins": {}
 }

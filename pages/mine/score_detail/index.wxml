@@ -1,0 +1,64 @@
+<!--pages/mine/score_detail/index.wxml-->
+<view class="content">
+  <view class="score">
+    <view class="score-detail">
+      <view class="score-count">
+        <text>10</text>
+      </view>
+      <view class="score-title">
+        <text>兑换积分</text>
+      </view>
+    </view>
+  </view>
+  <view class="shop">
+    <view class="shop-select">
+      <view class="select-item" wx:for="{{shopSelect}}" wx:key="id" bindtap="changeSelect" data-index="{{item.id}}">
+        <text class="{{current==item.id?'active':''}}">{{ item.name }}</text>
+      </view>
+    </view>
+    <view class="shop-box">
+      <view class="record-list" wx:if="{{current == 0}}">
+        <view class="shop-item" wx:for="{{swapGetList}}" wx:key="index">
+          <view class="left">
+            <view class="item-title">
+              <text>{{item.title}}</text>
+            </view>
+            <view class="item-time">
+              <text>时间：{{item.time}}</text>
+            </view>
+            <view class="item-tag">
+              <text>{{item.tag}}</text>
+            </view>
+          </view>
+          <view class="right">
+            <view class="score-count">
+              <text>+{{item.score}}积分</text>
+            </view>
+          </view>
+        </view>
+        <my-nodata title="暂无获取记录" wx:if="{{swapGetList.length === 0}}"></my-nodata>
+      </view>
+      <view class="swap-list" wx:else>
+        <view class="shop-item" wx:for="{{recordList}}" wx:key="index">
+          <view class="left">
+            <view class="item-title">
+              <text>{{item.title}}</text>
+            </view>
+            <view class="item-time">
+              <text>时间：{{item.time}}</text>
+            </view>
+            <view class="item-tag">
+              <text>{{item.tag}}</text>
+            </view>
+          </view>
+          <view class="right">
+            <view class="score-count">
+              <text>-{{item.score}}积分</text>
+            </view>
+          </view>
+        </view>
+        <my-nodata title="暂无兑换记录" wx:if="{{recordList.length === 0}}"></my-nodata>
+      </view>
+    </view>
+  </view>
+</view>

@@ -9,7 +9,7 @@
 .content .tabs {
   color: #999999;
   width: 100%;
-  position: fixed;
+  position: sticky;
   top: 0;
   z-index: 2;
   font-weight: bold;

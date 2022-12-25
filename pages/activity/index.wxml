@@ -26,6 +26,7 @@
     </picker>
   </view>
   <view class="list">
-    <my-item wx:for="{{ 3 }}" wx:key="index"></my-item>
+    <my-item wx:for="{{ 0 }}" wx:key="index"></my-item>
+    <my-nodata title="暂无活动"></my-nodata>
   </view>
 </view>

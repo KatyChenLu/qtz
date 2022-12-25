@@ -2,6 +2,7 @@
   background-color: #F1F4F9;
   padding: 0 0 30rpx 0;
   box-sizing: border-box;
+  height: 100vh;
 }
 
 .score {
@@ -43,7 +44,7 @@
 
 .score .score-detail {
   border-radius: 50%;
-  border: 15rpx solid #4ec3f1;
+  border: 15rpx solid #03d6f1;
   width: 250rpx;
   height: 250rpx;
   text-align: center;
@@ -56,7 +57,7 @@
 
 .score .score-detail .score-count {
   font-size: 50rpx;
-  color: #0175d4;
+  color: #00BAD3;
 }
 
 .shop {
@@ -82,7 +83,7 @@
   content: "";
   width: 50%;
   height: 9rpx;
-  background-color: green;
+  background-color: #00BAD3;
   border-radius: 30rpx;
   bottom: 0;
   left: 50%;
@@ -108,7 +109,7 @@
 }
 
 .shop .tag-list .tag-active {
-  color: #3187f7;
+  color: #00BAD3;
 }
 
 .shop .shop-list {
@@ -117,6 +118,8 @@
   padding: 0 31rpx;
   margin-top: 0rpx;
   justify-content: space-between;
+  height: 70vh;
+  overflow: scroll;
 }
 
 .shop .shop-list .list-item {

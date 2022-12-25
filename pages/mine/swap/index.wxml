@@ -1,0 +1,14 @@
+<!--pages/mine/swap/index.wxml-->
+<view class="content">
+  <view class="tabs">
+    <text wx:for="{{tabs}}" wx:key="index" class="{{current == item.id ? 'active':''}}" bindtap="changeTabs" data-index="{{item.id}}">{{item.name}}</text>
+  </view>
+  <view class="box" style="height: calc(100vh - 8rpx - {{tabsHeight}}px);">
+    <view class="xianxia">
+      
+    </view>
+    <view class="no-data">
+      <text>暂无数据</text>
+    </view>
+  </view>
+</view>

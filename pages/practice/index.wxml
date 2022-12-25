@@ -1,6 +1,6 @@
 <!--pages/practice/index.wxml-->
 <view class="content">
-  <view class="content-item" wx:for="{{10}}" wx:key="index">
+  <view class="content-item" wx:for="{{10}}" wx:key="index" bindtap="go">
     <view class="img">
       <image src="/static/shequ.jpg" mode="aspectFill"/>
     </view>

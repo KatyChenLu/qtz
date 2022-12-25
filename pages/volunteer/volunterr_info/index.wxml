@@ -1,6 +1,6 @@
 <!--pages/volunteer/volunterr_info/index.wxml-->
 <view class="content">
-  <view class="item" wx:for="{{10}}" wx:key="index">
+  <view class="item" wx:for="{{10}}" wx:key="index" bindtap="go">
     <view class="left">
       <view class="title">
         <text>新时代文明实践中心志愿服务总队</text>

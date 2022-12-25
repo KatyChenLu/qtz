@@ -1,0 +1,13 @@
+<!--pages/mine/feedback/index.wxml-->
+<view class="content">
+  <view class="home-list-title">
+    <view class="title-box">
+      <image class="img" src="/static/acticveBaoming.png" />
+      <text>意见反馈</text>
+    </view>
+  </view>
+  <view class="editor">
+      <textarea class="textarea" value="{{textarea}}" placeholder="请输入描述"/>
+  </view>
+  <my-btn title="提交"></my-btn>
+</view>

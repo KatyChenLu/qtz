@@ -1,0 +1,116 @@
+.content {
+  height: 100vh;
+  background-color: #F1F4F9;
+  padding: 0 0 30rpx 0;
+  box-sizing: border-box;
+}
+
+.score {
+  display: flex;
+  justify-content: center;
+  padding: 50rpx 0 100rpx 0;
+  background-color: white;
+  position: relative;
+}
+
+.score .score-detail {
+  border-radius: 50%;
+  border: 15rpx solid #03d6f1;
+  width: 250rpx;
+  height: 250rpx;
+  text-align: center;
+  font-weight: bold;
+  font-size: 32rpx;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.score .score-detail .score-count {
+  font-size: 50rpx;
+  color: #00BAD3;
+}
+
+.shop {
+  background-color: white;
+  margin-top: 15rpx;
+  padding: 0 0 20rpx 0;
+}
+
+.shop .shop-select {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 30rpx 0 20rpx 0;
+  background-color: white;
+}
+
+.shop .shop-select .select-item text {
+  position: relative;
+  padding: 0 0 15rpx 0;
+  box-sizing: border-box;
+}
+
+.shop .shop-select .select-item .active::after {
+  position: absolute;
+  content: "";
+  width: 50%;
+  height: 9rpx;
+  background-color: #00BAD3;
+  border-radius: 30rpx;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.shop .shop-box {
+  background-color: white;
+  overflow: scroll;
+  padding: 0 32rpx;
+  box-sizing: border-box;
+  height: 70vh;
+}
+
+.shop .shop-box .shop-item {
+  border-radius: 15rpx;
+  box-shadow: 0rpx 3rpx 20rpx rgba(153, 153, 153, 0.4);
+  padding: 24rpx;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20rpx;
+}
+
+.shop .shop-box .shop-item .left .item-title {
+  font-size: 36rpx;
+  font-weight: bold;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 350rpx;
+}
+
+.shop .shop-box .shop-item .left .item-time {
+  color: #999999;
+  font-size: 26rpx;
+  margin: 20rpx 0;
+}
+
+.shop .shop-box .shop-item .left .item-tag {
+  color: #00BAD3;
+  font-size: 30rpx;
+}
+
+.shop .shop-box .shop-item .left .item-tag text {
+  border: 1rpx solid #00BAD3;
+  padding: 5rpx 10rpx;
+  border-radius: 10rpx;
+}
+
+.shop .shop-box .shop-item .right {
+  font-size: 32rpx;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  color: #00BAD3;
+}

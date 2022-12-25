@@ -1,4 +1,4 @@
-// pages/volunteer/volunterr_info/index.js
+// pages/mine/address/index.js
 Page({
 
   /**
@@ -7,11 +7,8 @@ Page({
   data: {
 
   },
-  go(){
-    wx.navigateTo({
-      url: '/pages/volunteer/detail/index',
-    })
-  },
+  // 选择默认地址
+  onChange(){},
   /**
    * 生命周期函数--监听页面加载
    */

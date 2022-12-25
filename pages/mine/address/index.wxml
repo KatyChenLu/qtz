@@ -1,0 +1,29 @@
+<!--pages/mine/address/index.wxml-->
+<view class="content">
+  <view class="address">
+    <view class="address-item">
+      <view class="left">
+        <view class="default">
+          <van-radio-group value="{{ radio }}" bind:change="onChange">
+            <van-radio name="1" icon-size="40rpx" checked-color="#00BAD3"></van-radio>
+          </van-radio-group>
+        </view>
+        <view class="user-info">
+          <view class="name-phone">
+            <text class="username">苏海恩</text>
+            <text class="phone">13826821659</text>
+            <text class="is-default">默认</text>
+          </view>
+          <view class="address-detail"><text>东兰街区黄埔大道11栋4号</text></view>
+        </view>
+      </view>
+      <view class="look">
+        <image src="/static/foward.png" />
+      </view>
+    </view>
+  </view>
+  <view class="login-btn">
+    <image src="/static/login.png" />
+    <view class="btn-in"> <text>添加收货地址</text></view>
+  </view>
+</view>

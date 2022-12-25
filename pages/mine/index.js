@@ -56,11 +56,26 @@ Page({
     if(index == 2) return wx.navigateTo({
       url: '/pages/mine/score/index',
     })
+    if(index == 3) return wx.navigateTo({
+      url: '/pages/mine/swap/index',
+    })
+    if(index == 4) return wx.navigateTo({
+      url: '/pages/mine/address/index',
+    })
+    if(index == 5) return wx.scanCode({
+      scanType:["qrCode"],
+      success:(res)=>{console.log(res)}
+    })
+    if(index == 6) return wx.navigateTo({
+      url: '/pages/mine/feedback/index',
+    })
 
   },
   // 查看积分明细
   checkScore() {
-    console.log(111)
+    wx.navigateTo({
+      url: '/pages/mine/score_detail/index',
+    })
   },
   /**
    * 生命周期函数--监听页面加载

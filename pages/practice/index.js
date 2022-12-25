@@ -7,7 +7,12 @@ Page({
   data: {
 
   },
-
+  // 前往实践内页
+  go(){
+    wx.navigateTo({
+      url: '/pages/practice/pratice_detail/index',
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */

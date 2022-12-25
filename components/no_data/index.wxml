@@ -1,0 +1,5 @@
+<!--components/no_data/index.wxml-->
+<view class="bac">
+  <view class="img"><image src="/static/msous.png"/></view>
+  <view class="title">{{title}}</view>
+</view>

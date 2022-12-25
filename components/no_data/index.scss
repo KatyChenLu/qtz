@@ -1,0 +1,17 @@
+.bac{
+  margin-top: 150rpx;
+  .img{
+    display: flex;
+    justify-content: center;
+    image{
+      width: 300rpx;
+      height: 300rpx;
+    }
+  }
+  .title{
+    color: #999999;
+    text-align: center;
+    font-size: 34rpx;
+    margin-top: 20rpx;
+  }
+}

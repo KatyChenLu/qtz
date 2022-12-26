@@ -4,7 +4,7 @@
     <view class="avatar">
       <view class="user-name">
         <view class="detail">
-          <text>MR</text>
+          <text>{{ nickName }}</text>
         </view>
         <view class="has-done">
           <text class="has" wx:if="{{1 === 2}}">已完善</text>
@@ -12,7 +12,7 @@
         </view>
       </view>
       <view class="img">
-        <image src="" mode="" />
+        <image src="{{ avatarUrl }}" mode="aspectFill" />
       </view>
     </view>
     <view class="form-content">
@@ -28,7 +28,7 @@
         </van-radio-group>
       </my-form>
       <my-form data="{{form.phone}}">
-        <input type="number" value="{{form.phone.default}}" placeholder="请填写手机号" />
+        <input type="number" bindinput="getNowPhone" value="{{form.phone.default}}" placeholder="请填写手机号" />
       </my-form>
       <my-form data="{{form.family}}">
         <view class="family">

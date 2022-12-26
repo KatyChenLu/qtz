@@ -42,7 +42,11 @@ Page({
       },
     ],
     // 是否加入家庭
-    isHome: false
+    isHome: false,
+    // 用户信息
+    avatarUrl:"",
+    nickName:"",
+    phone:"",
   },
   // 前往用户信息
   goUser(e) {
@@ -77,16 +81,26 @@ Page({
       url: '/pages/mine/score_detail/index',
     })
   },
+  // 获取用户信息
+  getUserInfo(){
+    this.setData({
+      avatarUrl:wx.getStorageSync('avatarUrl'),
+      nickName:wx.getStorageSync('nickName'),
+      phone:wx.getStorageSync('phone')
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-    return
-    const token = wx.getStorageSync('access_token')
+    // return
+    const token = wx.getStorageSync('token')
     if (token === "") {
       wx.redirectTo({
         url: '/pages/login/index',
       })
+    }else{
+      this.getUserInfo()
     }
   },
 

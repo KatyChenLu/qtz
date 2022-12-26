@@ -7,19 +7,19 @@
     <view class="userinfo" bindtap="goUser" data-index="0">
       <view class="top">
         <view class="avatar">
-          <image class="avatar-in" src="" mode="" />
+          <image class="avatar-in" src="{{ avatarUrl }}" mode="aspectFill" />
         </view>
         <view class="info">
           <view class="nickname">
             <view class="my-name">
-              <text>MR</text>
+              <text>{{ nickName }}</text>
             </view>
             <view class="wanshan">
               <text>未完善资料</text>
             </view>
           </view>
           <view class="phone">
-            <text>13826821655</text>
+            <text>{{ phone }}</text>
           </view>
           <view class="myhome">
             <view class="hashome" wx:if="{{ isHome }}">

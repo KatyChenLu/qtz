@@ -23,8 +23,7 @@ export function request(type, url, data = {}, load = false) {
       method: type,
       data,
       header: {
-        'content-type': 'application/x-www-form-urlencoded;charset=UTF-8',
-        "x-token": wx.getStorageSync('token') || ''
+        "c-access-token": wx.getStorageSync('token') || ''
       },
       success: (res) => {
         if (res.statusCode == 200) {

@@ -1,0 +1,209 @@
+.content {
+  .back {
+    position: fixed;
+    top: 0;
+    z-index: 1;
+    width: 100%;
+
+    image {
+      width: 100%;
+      height: 370rpx;
+    }
+  }
+
+  .box {
+    position: relative;
+    z-index: 2;
+
+    .username {
+      display: flex;
+      justify-content: center;
+      color: white;
+      font-size: 34rpx;
+
+      .user-title {
+        margin-right: 10rpx;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+      }
+
+      .user-editor {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+
+        image {
+          width: 40rpx;
+          height: 40rpx;
+        }
+      }
+    }
+
+    .register {
+      color: white;
+      text-align: center;
+      font-size: 34rpx;
+      margin-top: 10rpx;
+    }
+
+    .score {
+      text-align: center;
+      color: #FFC57A;
+      margin: 15rpx;
+      font-size: 80rpx;
+    }
+
+    .score-title {
+      text-align: center;
+      color: white;
+      font-size: 34rpx;
+    }
+  }
+  .list {
+    position: relative;
+    z-index: 2;
+    padding: 0 32rpx 200rpx;
+    box-sizing: border-box;
+    margin-top: 30rpx;
+    .list-item {
+      margin-bottom: 20rpx;
+      display: flex;
+      padding: 24rpx;
+      box-sizing: border-box;
+      background-color: white;
+      border-radius: 15rpx;
+      box-shadow: 0 5rpx 10rpx rgba($color: #999999, $alpha: .4);
+      font-size: 34rpx;
+      @mixin center {
+        display: flex;justify-content: center;flex-direction: column;
+      }
+      .user-img {
+        @include center();
+        margin-right: 20rpx;
+        image {
+          width: 100rpx;
+          height: 100rpx;
+          border-radius: 10rpx;
+        }
+      }
+      .info{
+        .top{
+          display: flex;
+          font-weight: bolder;
+          margin: 0 0 10rpx 0;
+          .role{
+            color: #FFC57A;
+            margin-left: 15rpx;
+          }
+        }
+        .bottom{
+          color: #FFC57A;
+        }
+      }
+    }
+  }
+  .btn-group{
+    background-color: white;
+    z-index: 10;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 10rpx 32rpx 20rpx;
+    bottom: 0;
+    margin: auto;
+    box-sizing: border-box;
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    .btn-item{
+      width: 325rpx;
+      height: 150rpx;
+      position: relative;
+      image{
+        width: 100%;
+        height: 100%;
+        position: relative;
+        z-index: 2;
+      }
+      .btn-back{
+        width: 100%;
+        height: 100rpx;
+        position: absolute;
+        border-radius: 15rpx;
+        bottom: 0;
+        left: 0;
+        font-size: 32rpx;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        text{
+          padding: 0 0 10rpx 0;
+        }
+      }
+    }
+  }
+  .code{
+    width: 688rpx;
+    .code-title{
+      font-size: 32rpx;
+      font-weight: bolder;
+      text-align: center;
+      padding: 32rpx 0 0 0;
+      box-sizing: border-box;
+    }
+    .code-img{
+      display: flex;
+      justify-content: center;
+      border-bottom: 1rpx solid #999999;
+      padding: 32rpx 0;
+      box-sizing: border-box;
+      image{
+        width: 400rpx;
+        height: 400rpx;
+      }
+    }
+    .code-tips{
+      padding: 32rpx 0;
+      text-align: center;
+      font-size: 36rpx;
+    }
+  }
+  .join{
+    width: 688rpx;
+    font-size: 32rpx;
+    position: relative;
+    .img{
+      position: relative;
+      font-size: 36rpx;
+      text{
+        position: absolute;
+        transform:translate(-50%,-50%);
+        left: 50%;
+        top: 50%;
+        font-weight: bolder;
+        color: #1E948A;
+      }
+    }
+    .member-list{
+      width: 100%;
+      height: 300rpx;
+      padding: 24rpx 32rpx;
+      box-sizing: border-box;
+      .join-scroll{
+        height:300rpx;
+      }
+      .checkbox{
+        .van-radio{
+          margin: 0 0 20rpx 0;
+        }
+      }
+    }
+    .btn{
+      height: 200rpx;
+      padding: 0 32rpx;
+      box-sizing: border-box;
+    }
+  }
+}

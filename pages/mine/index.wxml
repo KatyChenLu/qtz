@@ -7,25 +7,28 @@
     <view class="userinfo" bindtap="goUser" data-index="0">
       <view class="top">
         <view class="avatar">
-          <image class="avatar-in" src="{{ avatarUrl }}" mode="aspectFill" />
+          <image class="avatar-in" src="{{ userInfo.avatarUrl }}" mode="aspectFill" />
         </view>
         <view class="info">
           <view class="nickname">
             <view class="my-name">
-              <text>{{ nickName }}</text>
+              <text>{{ userInfo.nickName }}</text>
             </view>
-            <view class="wanshan">
+            <view class="wanshan" wx:if="{{userInfo.is_perfect == 0}}">
               <text>未完善资料</text>
+            </view>
+            <view class="has-wanshan" wx:else="{{ userInfo.is_perfect == 1 }}">
+              <text>已完善</text>
             </view>
           </view>
           <view class="phone">
-            <text>{{ phone }}</text>
+            <text>{{ userInfo.phone }}</text>
           </view>
           <view class="myhome">
-            <view class="hashome" wx:if="{{ isHome }}">
-              <text>梁山的</text>
+            <view class="hashome" catchtap="goMyFamily" wx:if="{{ userInfo.is_family == 1 }}">
+              <text>{{ userInfo.create_name }}</text>
             </view>
-            <view class="nohome" wx:else>
+            <view class="nohome" wx:else catchtap="goCreateFamily">
               <text>你尚未加入家庭</text>
             </view>
           </view>
@@ -34,11 +37,11 @@
       <view class="bottom">
         <view class="bottom-box">
           <view class="bottom-item">
-            <view class="item-in"> <text class="title">兑换积分：</text><text class="count">40</text></view>
+            <view class="item-in"> <text class="title">兑换积分：</text><text class="count">{{ userInfo.integral }}</text></view>
           </view>
           <view class="bottom-item">
             <view class="item-in">
-              <text class="title">年度积分：</text><text class="count">40</text>
+              <text class="title">年度积分：</text><text class="count">{{userInfo.annualIntegral}}</text>
             </view>
           </view>
 

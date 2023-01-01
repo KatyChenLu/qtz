@@ -14,7 +14,7 @@
     </view>
   </view>
   <view class="select">
-    <picker mode="{{ item.mode }}" wx:for="{{selectList}}" wx:key="id">
+    <picker mode="{{ item.mode }}" range="{{item.range}}" range-key="{{item.rangeKey}}" wx:for="{{selectList}}" wx:key="id" bindchange="confirm" data-id="{{item.id}}">
       <view class="picker-box" >
         <view class="picker-text">
           <text>{{ item.name }}</text>
@@ -26,7 +26,9 @@
     </picker>
   </view>
   <view class="list">
-    <my-item wx:for="{{ 0 }}" wx:key="index"></my-item>
-    <my-nodata title="暂无活动"></my-nodata>
+    <my-nodata title="暂无活动" wx:if="{{activityConfig.list.length === 0}}"></my-nodata>
+    <view class="list-box">
+      <my-item wx:for="{{ activityConfig.list }}" detail="{{ item }}" wx:key="index" ></my-item>
+    </view>
   </view>
 </view>

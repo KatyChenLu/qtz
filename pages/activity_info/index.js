@@ -1,11 +1,15 @@
 // pages/activity_info/index.js
+import {
+  request
+} from "../../api/index"
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    show:false,
+    score:0,
+    show: false,
     baoming: 6,
     hasbaoming: 4,
     progressWidth: 0,
@@ -37,35 +41,82 @@ Page({
         name: "2022-12-23 18:00",
         img: "/static/time.png"
       },
-    ]
+    ],
+    activity: {
+      "detail": {
+        "activity_name": "", //活动名称
+        "activity_id": 1, //活动id
+        "integral": 50, //每小时获得的积分
+        "num_people": 6, //最大人数
+        "image": "", //图片
+        "address_short": "医院", //地址简称
+        "address_long": "东莞市X村茶山医院", //详细地址
+        "start_time": "2022-12-27 20:55:12", //开始时间
+        "end_time": "2022-12-30 20:55:18", //结束时间
+        "longitude": 113.31, //经度
+        "latitude": 22.39, //纬度
+        "content": "<h1></h1>", //富文本
+        "images": [
+          "http://localhost:9501/images/test.png",
+          "http://localhost:9501/images/test.png"
+        ] //多图
+      },
+      "is_apply": 1, //1本人已经报名  0未报名
+      "apply_num": 1 //已经报名人数
+    }
   },
-    // 打开详情
-    openDetail(e){
-      this.setData({show:true})
-    },
-    // 关闭遮罩层
-    closePopup(){
-      this.setData({show:false})
-    },
+  // 打开详情
+  openDetail(e) {
+    this.setData({
+      show: true
+    })
+  },
+  // 关闭遮罩层
+  closePopup() {
+    this.setData({
+      show: false
+    })
+  },
   // 前往地图
   goMap() {
     wx.openLocation({
-      latitude:24.0812917700,	//维度
-      longitude: 110.4562530500, //经度
-      name:"茶山镇茶花广场",
-      scale:15,
-      address:"东莞市"
+      latitude: this.data.activity.detail.latitude, //维度
+      longitude: this.data.activity.detail.longitude, //经度
+      name: this.data.activity.detail.address_short,
+      scale: 15,
+      address: this.data.activity.detail.address_long
     })
+  },
+  // 获取活动详情
+  async getActivityDetail(activity_id) {
+    let res = await request("get", "/activity/detail", {
+      activity_id
+    })
+    if (res.code != 200) return
+    this.setData({
+      activity: res.data
+    })
+    this.setData({
+      'infoList[0].name': this.data.activity.detail.address_short,
+      "infoList[1].name": this.data.activity.detail.start_time,
+      "infoList[2].name": this.data.activity.detail.end_time
+    })
+    let rest = parseInt((new Date(this.data.activity.detail.end_time).getTime() - new Date(this.data.activity.detail.start_time).getTime())/1000/60/60)
+    this.setData({score:rest*this.data.activity.detail.integral})
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
+    if (options.activity_id === undefined) return wx.switchTab({
+      url: '/pages/index/index',
+    })
+    this.getActivityDetail(options.activity_id)
     const demo = this.createSelectorQuery().select('.progress-in').boundingClientRect()
     demo.exec((res) => {
-        this.setData({
-          progressWidth: res[0].width * (this.data.hasbaoming / this.data.baoming)
-        })
+      this.setData({
+        progressWidth: res[0].width * (this.data.activity.apply_num / this.data.activity.detail.num_people)
+      })
 
     })
   },

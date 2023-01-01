@@ -28,19 +28,23 @@
       0px 17.4px 10px rgba(0, 0, 0, 0.021),
       0px 41.9px 24.1px rgba(0, 0, 0, 0.03),
       0px 139px 80px rgba(0, 0, 0, 0.05);
-    .userinfo{
+
+    .userinfo {
       padding: 24rpx 43rpx;
       box-sizing: border-box;
-      .top{
+
+      .top {
         display: flex;
-        .avatar{
+
+        .avatar {
           width: 160rpx;
           height: 160rpx;
           position: relative;
           display: flex;
           justify-content: center;
           flex-direction: column;
-          .avatar-in{
+
+          .avatar-in {
             border: 1rpx solid #000;
             border-radius: 50%;
             width: 80%;
@@ -50,20 +54,25 @@
             transform: translateX(-50%);
           }
         }
-        .info{
+
+        .info {
           margin-left: 20rpx;
           display: flex;
           justify-content: center;
           flex-direction: column;
-          .nickname{
+
+          .nickname {
             display: flex;
-            .my-name{
+
+            .my-name {
               display: flex;
               flex-direction: column;
               justify-content: center;
-              font-weight: bold;font-size: 34rpx;
+              font-weight: bold;
+              font-size: 34rpx;
             }
-            .wanshan{
+
+            .wanshan {
               font-size: 20rpx;
               display: flex;
               flex-direction: column;
@@ -71,46 +80,73 @@
               color: red;
               box-sizing: border-box;
               margin-left: 30rpx;
-              text{
+
+              text {
+                border: 1rpx solid red;
+                padding: 3rpx 10rpx;
+                border-radius: 30rpx;
+              }
+            }
+
+            .has-wanshan {
+              font-size: 20rpx;
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              color: #1E948A;
+              box-sizing: border-box;
+              margin-left: 30rpx;
+
+              text {
                 border: 1rpx solid red;
                 padding: 3rpx 10rpx;
                 border-radius: 30rpx;
               }
             }
           }
-          .phone{
+
+          .phone {
             font-size: 28rpx;
             color: #999999;
             margin: 6rpx 0;
           }
-          .myhome{
+
+          .myhome {
             font-size: 30rpx;
             color: rgb(85, 85, 250);
             text-decoration: underline;
           }
         }
       }
-      .bottom{
+
+      .bottom {
         display: flex;
         font-size: 26rpx;
         justify-content: space-between;
-        .bottom-box{
+
+        .bottom-box {
           width: 60%;
           display: flex;
           font-size: 24rpx;
           justify-content: space-between;
-          .bottom-item{
-            display: flex;justify-content: center;flex-direction: column;
-            .count{
+
+          .bottom-item {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+
+            .count {
               color: orange;
             }
           }
         }
-        .check-score{
+
+        .check-score {
           width: 32%;
           text-align: center;
           color: #F1F4F9;
-          text{
+
+          text {
             background-color: #1E948A;
             padding: 15rpx 20rpx;
             border-radius: 20rpx;
@@ -135,7 +171,7 @@
       1px 0px 80px rgba(0, 0, 0, 0.03);
 
     .bottom {
-      border-bottom: 1rpx solid rgba(231,231,231,.5);
+      border-bottom: 1rpx solid rgba(231, 231, 231, .5);
     }
 
     .list-item {
@@ -144,6 +180,7 @@
       display: flex;
       font-size: 28rpx;
       position: relative;
+
       .select-img {
         image {
           width: 40rpx;
@@ -158,11 +195,13 @@
         flex-direction: column;
         margin: 0 0 0 40rpx;
       }
-      .go{
+
+      .go {
         position: absolute;
         top: 30rpx;
         right: 0rpx;
-        image{
+
+        image {
           width: 20rpx;
           height: 20rpx;
         }

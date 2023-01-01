@@ -1,0 +1,66 @@
+.content{
+  .logo{
+    position: relative;
+    .title{
+      position: absolute;
+      width: 280rpx;
+      text-align: center;
+      font-size: 36rpx;
+      font-weight: bolder;
+      color: #1E948A;
+      left: 50%;
+      transform: translateX(-50%);
+      margin: 10rpx 0 0 0;
+    }
+  }
+  .form{
+    padding: 0 31rpx;
+    box-sizing: border-box;
+    @mixin center {
+      display: flex;flex-direction: column;justify-content: center;
+    }
+    font-size: 32rpx;
+    .form-item{
+      display: flex;
+      margin: 0 0 30rpx 0;
+      .label{@include center();width: 200rpx;white-space: nowrap;}
+      .special-label{width: 700rpx;}
+      .ipt{
+        padding: 10rpx 20rpx;
+        box-sizing: border-box;
+        width: calc(100% - 200rpx);
+        border: 1rpx solid #999999;
+        border-radius: 10rpx;
+      }
+      .special-ipt{
+        width:100%;
+      }
+      .picker{
+        width: 100%;
+        border-radius: 10rpx;
+        padding: 10rpx 20rpx;
+        box-sizing: border-box;
+        border: 1rpx solid #999999;
+      }
+      .huji{
+        width: 220rpx !important;
+      }
+      .family{
+        justify-content: flex-start !important;
+      }
+    }
+  }
+  .tips{
+    color: red;
+    margin: 0 0 20rpx 0;
+  }
+  .scroll{
+    height: 230rpx;
+    font-size: 32rpx;
+    .checkbox{
+      .van-checkbox{
+        margin: 0 0 20rpx 0;
+      }
+    }
+  }
+}

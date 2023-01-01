@@ -1,0 +1,88 @@
+<!--pages/mine/family/detail/index.wxml-->
+<view class="content">
+  <view class="back">
+    <image src="/static/gdbj.png" />
+  </view>
+  <view class="box">
+    <view class="username">
+      <view class="user-title"><text>{{ family.create_name }}</text></view>
+      <view class="user-editor" bindtap="editFamilyName" wx:if="{{family.is_create}}">
+        <image src="/static/edit.png" mode="" />
+      </view>
+    </view>
+    <view class="register">
+      <text>已注册</text>
+    </view>
+    <view class="score">
+      <text>{{family.total_integral}}</text>
+    </view>
+    <view class="score-title">
+      <text>家庭总积分</text>
+    </view>
+  </view>
+  <view class="list">
+    <view class="list-item" wx:for="{{family.family_member}}" wx:key="index">
+      <view class="user-img">
+        <image src="{{ item.avatarUrl }}" mode="aspectFill" />
+      </view>
+      <view class="info">
+        <view class="top">
+          <view class="nickname">
+            <text>{{item.nickName}}</text>
+          </view>
+          <view class="role">
+            <text>{{item.member_name}}</text>
+          </view>
+        </view>
+        <view class="bottom">
+          <text>年度积分：{{item.integral}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="btn-group">
+    <view class="btn-item" bindtap="exitFamily">
+      <image src="/static/login.png" />
+      <view class="btn-back" style="background-color: #e3e3e3;">
+        <text>退出家庭</text>
+      </view>
+    </view>
+    <view class="btn-item" bindtap="showCode">
+      <image src="/static/login.png" />
+      <view class="btn-back" style="background-color: #1E948A;color: #fff;">
+        <text>邀请加入家庭</text>
+      </view>
+    </view>
+  </view>
+  <van-popup show="{{show}}" bind:close="closeCode" round="{{true}}" bind:click-overlay="closeCode">
+    <view class="code">
+      <view class="code-title">
+        <text>快来邀请您的家庭成员吧</text>
+      </view>
+      <view class="code-img">
+        <image src="{{family.qrcode}}" show-menu-by-longpress="{{true}}" mode="" />
+      </view>
+      <view class="code-tips">
+        <text>长按保存或识别小程序</text>
+      </view>
+    </view>
+  </van-popup>
+  <van-popup show="{{joinShow}}" round="{{ true }}">
+    <view class="join">
+      <view class="img">
+        <text>请选择家庭关系</text>
+        <image src="/static/decorate.png" mode="widthFix" />
+      </view>
+      <view class="member-list">
+        <scroll-view scroll-y="{{true}}" class="join-scroll">
+          <van-radio-group value="{{checkResult}}" bind:change="changeCheckBox">
+            <van-radio shape="square" class="checkbox" wx:for="{{ memberConfig }}" checked-color="#1E948A" wx:key="index" name="{{item.member_id}}">{{item.member_name}}</van-radio>
+            </van-radio-group>
+        </scroll-view>
+      </view>
+      <view class="btn">
+        <my-btn bindtap="confirmJoin" title="确认" width="624rpx" in_width="620rpx"></my-btn>
+      </view>
+    </view>
+  </van-popup>
+</view>

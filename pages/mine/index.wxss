@@ -90,6 +90,22 @@
   border-radius: 30rpx;
 }
 
+.mine .user-content .userinfo .top .info .nickname .has-wanshan {
+  font-size: 20rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: #1E948A;
+  box-sizing: border-box;
+  margin-left: 30rpx;
+}
+
+.mine .user-content .userinfo .top .info .nickname .has-wanshan text {
+  border: 1rpx solid red;
+  padding: 3rpx 10rpx;
+  border-radius: 30rpx;
+}
+
 .mine .user-content .userinfo .top .info .phone {
   font-size: 28rpx;
   color: #999999;

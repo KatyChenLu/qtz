@@ -2,18 +2,20 @@
 <view class="activity-info">
   <view class="swiper-box">
     <swiper indicator-dots="{{ true }}">
-      <swiper-item wx:for="{{ swiperList }}" wx:key="id">
-        <view style="background-color: {{item.color}};" class="item"></view>
+      <swiper-item wx:for="{{ activity.detail.images }}" wx:key="index">
+        <view class="item">
+          <image src="{{item}}" mode="aspectFill"/>
+        </view>
       </swiper-item>
     </swiper>
   </view>
   <view class="activity-box">
     <view class="top">
       <view class="left">
-        <text>茶山新时代文明实践|20221223(下午)协助茶山医院疫苗接种活动</text>
+        <text>{{  activity.detail.activity_name }}</text>
       </view>
       <view class="right">
-        <text class="score">40</text>
+        <text class="score">{{score}}</text>
         <text class="score-title">积分</text>
       </view>
     </view>
@@ -28,7 +30,7 @@
             </view>
           </view>
           <view class="count">
-            <text class="count-detail">{{ hasbaoming }}/{{baoming}}人</text>
+            <text class="count-detail">{{  activity.apply_num }}/{{ activity.detail.num_people}}人</text>
           </view>
         </view>
         <view class="info-item" wx:for="{{infoList}}" wx:key="id">
@@ -53,6 +55,9 @@
       <image class="img" src="/static/acticveBaoming.png" />
       <text>活动介绍</text>
     </view>
+  </view>
+  <view class="detail-content">
+    <rich-text nodes="{{ activity.detail.content}}"/>
   </view>
   <view class="btn" bindtap="openDetail">
     <text>活动报名</text>

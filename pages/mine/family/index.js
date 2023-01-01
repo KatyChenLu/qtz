@@ -1,33 +1,32 @@
-// pages/practice/index.js
-import { request } from "../../api/index"
+// pages/mine/family/index.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    pageNum:1,
-    pageSize:20,
-    list:[]
+
   },
-  // 前往实践内页
-  go(){
-    wx.navigateTo({
-      url: '/pages/practice/pratice_detail/index',
+  // 扫一扫
+  scan() {
+    wx.scanCode({
+      scanType: ["qrCode"],
+      success: (res) => {
+        console.log(res)
+      }
     })
   },
-  // 获取实践动态文章列表
-  async getArticle(){
-    let res = await request("get","/practice/list",{pageNum:this.data.pageNum,pageSize:this.data.pageSize})
-    if(res.code != 200) return
-    this.setData({list:res.data.list})
-    console.log(this.data.list)
+  // 前往完善家庭信息
+  goFamily(){
+    wx.navigateTo({
+      url: '/pages/mine/family/perfect/index',
+    })
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-    this.getArticle()
+
   },
 
   /**

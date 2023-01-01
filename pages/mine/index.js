@@ -1,4 +1,7 @@
 // pages/mine/index.js
+import {
+  request
+} from "../../api/index"
 Page({
 
   /**
@@ -41,12 +44,24 @@ Page({
         name: "意见反馈"
       },
     ],
-    // 是否加入家庭
-    isHome: false,
-    // 用户信息
-    avatarUrl:"",
-    nickName:"",
-    phone:"",
+    userInfo: {
+      // 用户信息
+      avatarUrl: "",
+      nickName: "",
+      phone: "",
+      is_family: 0, //是否完善家庭
+      is_perfect: 0, //是否完善资料
+      create_name: "", //家庭名称
+      integral: 0, //总积分
+      annualIntegral: 40, //年度积分
+      sex: 1, //性别 1为男 2为女
+      contact_numbe: "", //联系电话
+      area_id: 0, //区域id
+      contact_address: "", //联系地址
+      idCard: "", //身份证号码
+      eme_contact: "", //紧急联系人
+      eme_phone: "" //紧急联系人电话
+    }
   },
   // 前往用户信息
   goUser(e) {
@@ -54,23 +69,25 @@ Page({
     if (index == 0) return wx.navigateTo({
       url: '/pages/mine/user/index',
     })
-    if(index == 1) return wx.navigateTo({
+    if (index == 1) return wx.navigateTo({
       url: '/pages/mine/my_activity/index',
     })
-    if(index == 2) return wx.navigateTo({
+    if (index == 2) return wx.navigateTo({
       url: '/pages/mine/score/index',
     })
-    if(index == 3) return wx.navigateTo({
+    if (index == 3) return wx.navigateTo({
       url: '/pages/mine/swap/index',
     })
-    if(index == 4) return wx.navigateTo({
+    if (index == 4) return wx.navigateTo({
       url: '/pages/mine/address/index',
     })
-    if(index == 5) return wx.scanCode({
-      scanType:["qrCode"],
-      success:(res)=>{console.log(res)}
+    if (index == 5) return wx.scanCode({
+      scanType: ["qrCode"],
+      success: (res) => {
+        console.log(res)
+      }
     })
-    if(index == 6) return wx.navigateTo({
+    if (index == 6) return wx.navigateTo({
       url: '/pages/mine/feedback/index',
     })
 
@@ -81,12 +98,24 @@ Page({
       url: '/pages/mine/score_detail/index',
     })
   },
+  // 创建家庭
+  goCreateFamily() {
+    wx.navigateTo({
+      url: '/pages/mine/family/index',
+    })
+  },
+  // 前往我的家庭
+  goMyFamily(){
+    wx.navigateTo({
+      url: '/pages/mine/family/detail/index',
+    })
+  },
   // 获取用户信息
-  getUserInfo(){
+  async getUserInfo() {
+    let res = await request("get", "/user/info")
+    if (res.code != 200) return
     this.setData({
-      avatarUrl:wx.getStorageSync('avatarUrl'),
-      nickName:wx.getStorageSync('nickName'),
-      phone:wx.getStorageSync('phone')
+      userInfo:res.data.userInfo
     })
   },
   /**
@@ -99,7 +128,7 @@ Page({
       wx.redirectTo({
         url: '/pages/login/index',
       })
-    }else{
+    } else {
       this.getUserInfo()
     }
   },

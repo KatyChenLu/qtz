@@ -2,9 +2,9 @@
 <view class="content">
   <view class="top-box">
     <swiper indicator-dots="{{ true }}">
-      <swiper-item wx:for="{{ swiperList }}" wx:key="id">
-        <view style="background-color: {{item.color}};" class="item">
-
+      <swiper-item wx:for="{{ swiperList }}" wx:key="index">
+        <view class="item">
+          <image src="{{item}}" mode="aspectFill"/>
         </view>
       </swiper-item>
     </swiper>
@@ -25,7 +25,7 @@
   <view class="home-list">
     <view class="home-list-box">
       <view class="home-list-item">
-        <my-item wx:for="{{ 3 }}" wx:key="index"></my-item>
+        <my-item wx:for="{{ activityConfig.list }}" detail="{{item}}" wx:key="index"></my-item>
       </view>
     </view>
   </view>

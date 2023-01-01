@@ -22,7 +22,10 @@
     "pages/mine/feedback/index",
     "pages/mine/score_detail/index",
     "pages/practice/pratice_detail/index",
-    "pages/volunteer/detail/index"
+    "pages/volunteer/detail/index",
+    "pages/mine/family/index",
+    "pages/mine/family/perfect/index",
+    "pages/mine/family/detail/index"
   ],
   "tabBar": {
     "color": "#000000",
@@ -71,7 +74,9 @@
     "van-radio": "@vant/weapp/radio/index",
     "van-radio-group": "@vant/weapp/radio-group/index",
     "my-btn": "/components/btn/index",
-    "my-nodata": "/components/no_data/index"
+    "my-nodata": "/components/no_data/index",
+    "van-checkbox": "@vant/weapp/checkbox/index",
+    "van-checkbox-group": "@vant/weapp/checkbox-group/index"
   },
   "plugins": {}
 }

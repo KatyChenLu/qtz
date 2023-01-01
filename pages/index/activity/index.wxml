@@ -1,18 +1,18 @@
 <!--pages/index/activity/index.wxml-->
 <view class="my-item" bindtap="go">
-  <image src="/static/shequ.jpg" mode="aspectFill"/>
+  <image src="{{detail.image}}" mode="aspectFill"/>
   <image class="back" src="/static/bulletionItembg.png"/>
   <view class="item-box">
     <view class="item-left">
       <view class="left-title">
-        <text>茶山新时代文明实践|20221223(下午)协助茶山医院疫苗接种活动</text>
+        <text>{{detail.activity_name}}</text>
       </view>
       <view class="item-info">
         <view class="info-img">
           <image src="/static/time.png"/>
         </view>
         <view class="info-text">
-          <text>2022.12.23 14:00</text>
+          <text>{{ detail.start_time }}</text>
         </view>
       </view>
       <view class="item-info">
@@ -20,16 +20,16 @@
           <image src="/static/address.png"/>
         </view>
         <view class="info-text">
-          <text>茶山医院</text>
+          <text>{{detail.address_short}}</text>
         </view>
       </view>
     </view>
     <view class="item-right">
       <view class="item-score">
-        <text>40积分</text>
+        <text>{{ detail.integral }}积分</text>
       </view>
       <view class="item-status">
-        <text>活动报名中</text>
+        <text>{{status}}</text>
       </view>
     </view>
   </view>

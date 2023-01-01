@@ -1,9 +1,9 @@
 .login-btn {
   width: 688rpx;
   height: 150rpx;
-  position: fixed;
   bottom: 31rpx;
   left: 50%;
+  position: fixed;
   transform: translateX(-50%);
 }
 
@@ -15,7 +15,6 @@
   text-align: center;
   font-size: 32rpx;
   color: white;
-  background-color: #1E948A;
   bottom: 0;
   display: flex;
   justify-content: center;

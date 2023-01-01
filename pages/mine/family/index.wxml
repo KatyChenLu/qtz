@@ -1,0 +1,17 @@
+<!--pages/mine/family/index.wxml-->
+<view class="content">
+  <view class="title">
+    <text>请扫一扫你要加入的家庭二维码</text>
+  </view>
+  <view class="code" bindtap="scan">
+    <view class="img">
+      <image src="/static/scan.png" mode="" />
+    </view>
+    <view class="text">
+      <text>扫描家庭分享码,立即加入家庭</text>
+    </view>
+  </view>
+  <view class="go" bindtap="goFamily">
+    <text>未有家庭，立即创建家庭</text>
+  </view>
+</view>

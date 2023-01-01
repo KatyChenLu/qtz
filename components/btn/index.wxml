@@ -1,5 +1,5 @@
 <!--components/btn/index.wxml-->
-<view class="login-btn">
+<view class="login-btn" style="width: {{width}};">
     <image src="/static/login.png" />
-    <view class="btn-in"> <text>{{title}}</text></view>
+    <view class="btn-in" style="background-color: {{backgroundColor}};width: {{in_width}};" > <text>{{title}}</text></view>
 </view>

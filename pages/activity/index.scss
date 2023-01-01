@@ -63,6 +63,10 @@
         display: flex;
         justify-content: center;
         flex-direction: column;
+        width: calc(100% - 30rpx);
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
       }
       .picker-img{
         image{

@@ -1,0 +1,53 @@
+<!--pages/mine/family/perfect/index.wxml-->
+<view class="content">
+  <view class="logo">
+    <view class="title">
+      <text>请填写以下信息进行家庭创建</text>
+    </view>
+    <image src="/static/decorate.png" mode="widthFix" />
+  </view>
+  <view class="form">
+    <view class="form-item">
+      <view class="label"><text>创建人姓名：</text></view>
+      <view class="ipt"><input value="{{creator}}" type="text" placeholder="创建人姓名" bindinput="changeName" /></view>
+    </view>
+    <view class="form-item">
+      <view class="label"><text>联系电话：</text></view>
+      <view class="ipt"><input value="{{phone}}" type="number"  placeholder="联系电话" bindinput="changePhone" /></view>
+    </view>
+    <view class="form-item">
+      <view class="label special-label"><text>现居(工作、学习)地址：</text></view>
+      <picker class="picker" range="{{addressRange}}" range-key="name" bindchange="changeAddress">
+        <view class="select"><text>{{ address_show===""?"请选择":address_show }}</text></view>
+      </picker>
+    </view>
+    <view class="form-item">
+      <view class="label "><text>户籍所在地：</text></view>
+      <picker class="picker" range="{{hujiRange}}" range-key="name" bindchange="changeHuji">
+        <view class="select"><text>{{ huji_show===""?"请选择":huji_show }}</text></view>
+      </picker>
+    </view>
+    <view class="form-item">
+      <view class="label huji"><text>现居联络地址：</text></view>
+      <view class="ipt"><input bindinput="changeNowAddress" type="text" placeholder="现居联络地址" /></view>
+    </view>
+    <view class="form-item">
+      <view class="label "><text>身份证号码：</text></view>
+      <view class="ipt">
+        <input type="idcard" bindinput="changeIdCard" placeholder="身份证号码" />
+      </view>
+    </view>
+    <view class="tips">
+      <text>注：将优先按照户籍所在地评选星级文明用户</text>
+    </view>
+    <view class="form-item">
+      <view class="label family"><text>家庭成员：</text></view>
+      <scroll-view class="scroll" scroll-y="{{true}}">
+        <van-checkbox-group value="{{checkResult}}" bind:change="changeCheckBox">
+          <van-checkbox shape="square" class="checkbox" wx:for="{{ familyList }}" checked-color="#1E948A" wx:key="name" name="{{item.title}}">{{item.title}}</van-checkbox>
+        </van-checkbox-group>
+      </scroll-view>
+    </view>
+  </view>
+  <my-btn title="提交信息" bindtap="submit"></my-btn>
+</view>

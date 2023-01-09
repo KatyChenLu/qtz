@@ -9,6 +9,7 @@
       width: 70rpx;
       height: 70rpx;
       vertical-align: bottom;
+      border-radius: 50%;
     }
 
     .warnning {
@@ -104,7 +105,8 @@
               width: 80rpx;
               height: 80rpx;
               border-radius: 50%;
-              border: 1rpx solid #000;
+              overflow: hidden;
+
               margin: 0 30rpx 0 20rpx;
               @include center();
 

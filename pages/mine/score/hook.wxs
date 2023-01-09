@@ -1,0 +1,9 @@
+var status = function(status){
+  if(status == 0) return "审核失败"
+  if(status == 1) return "审核中"
+  if(status == 2) return "审核成功"
+}
+
+module.exports = {
+  status:status
+}

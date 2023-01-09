@@ -1,4 +1,5 @@
 // pages/volunteer/index.js
+import { request } from "../../api/index"
 Page({
 
   /**
@@ -7,6 +8,14 @@ Page({
   data: {
     // 展示二维码
     show: false,
+    img:"",
+    qrcode:""
+  },
+  // 获取志愿服务队二维码以及介绍
+  async getVolunteer(){
+    let res = await request("get","/volunteer/before")
+    if(res.code != 200) return
+    this.setData({img:res.data.volunteer_img,qrcode:res.data.volunteer_qrcode})
   },
   go(e) {
     const index = e.currentTarget.dataset.index
@@ -30,7 +39,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-
+    Promise.all([this.getVolunteer()])
   },
 
   /**

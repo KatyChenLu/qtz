@@ -1,11 +1,12 @@
 <!--pages/mine/my_activity/index.wxml-->
+<wxs module="filter" src="./hook.wxs"></wxs>
 <view class="content">
-  <view class="my-item" bindtap="go">
-    <image src="/static/shequ.jpg" mode="aspectFill" />
+  <view class="my-item" wx:for="{{list}}" wx:key="index" bindtap="go" data-id="{{item.activity_id}}">
+    <image src="{{item.image}}" mode="aspectFill" />
     <view class="item-box">
       <view class="item-left">
         <view class="left-title">
-          <text>茶山新时代文明实践|20221223(下午)协助茶山医院疫苗接种活动</text>
+          <text>{{item.activity}}</text>
         </view>
         <view class="item-info">
           <text>报名成功</text>
@@ -15,24 +16,28 @@
             <image src="/static/score.png" />
           </view>
           <view class="info-text">
-            <text class="info-score">获得40积分</text>
+            <text class="info-score">获得{{ filter.rest(item.start_time,item.end_time,item.integral) }}积分</text>
           </view>
         </view>
         <view class="item-info">
           <view class="info-img">
-            <image src="/static/address.png" />
+            <image src="/static/time.png" />
           </view>
           <view class="info-text">
-            <text>茶山医院</text>
+            <text>{{item.start_time}}</text>
           </view>
         </view>
       </view>
       <view class="item-right">
-        <view class="code btn">
-          <text catchtap="scanCode">扫码签到</text>
+        <view class="has-cancel" wx:if="{{item.status === 0}}">
+          <text>已取消</text>
         </view>
-        <view class="cancel btn" >
-          <text catchtap="cancelBaoming">取消报名</text>
+        <view class="code btn" wx:if="{{item.status !== 0}}">
+          <text catchtap="scanCode" wx:if="{{item.status !== 3}}">扫码签到</text>
+          <text catchtap="scanCode" wx:else>扫码签退</text>
+        </view>
+        <view class="cancel btn" wx:if="{{item.status !== 0}}" >
+          <text catchtap="cancelBaoming" data-item="{{item}}">取消报名</text>
         </view>
       </view>
     </view>

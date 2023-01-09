@@ -1,17 +1,17 @@
 <!--pages/score_rank/index.wxml-->
 <view class="content">
   <view class="avatar" id="avatar">
-    <image class="touxiang" src="/static/avatar_in.png" />
+    <image class="touxiang" src="{{avatarUrl}}" />
     <image class="warnning" bindtap="showWarnning" src="/static/warning.png" />
   </view>
   <view class="rank" id="rank">
     <view class="left">
-      <text>我的排名：{{rankData.myRank}}名</text>
-      <text>年度积分：{{rankData.yearScore}}</text>
+      <text>我的排名：{{rankData.mine_rank}}</text>
+      <text>年度积分：{{rankData.annual_integral}}</text>
     </view>
     <view class="right">
-      <text>我的家庭排名：{{rankData.myHomeRank}}</text>
-      <text>兑换积分：{{rankData.swapScore}}</text>
+      <text>我的家庭排名：{{rankData.family_rank}}</text>
+      <text>兑换积分：{{rankData.integral}}</text>
     </view>
   </view>
   <view class="swiper-tab" id="swiper-tabs">
@@ -31,18 +31,18 @@
                 </view>
                 <view class="rank-user">
                   <view class="rank-img">
-                    <image src="" mode="" />
+                    <image src="{{item.avatarUrl}}" />
                   </view>
                   <view class="rank-name">
-                    <text>云天明</text>
+                    <text>{{item.nickName}}</text>
                   </view>
                 </view>
               </view>
               <view class="rank-score">
-                <text>16565积分</text>
+                <text>{{item.integral}}积分</text>
               </view>
             </view>
-            <view class="login-btn" bindtap="goMore" data-index="0" wx:if="{{singleRank>=10}}">
+            <view class="login-btn" bindtap="goMore" data-index="0" wx:if="{{singleRank.length===10}}">
               <image src="/static/login.png" />
               <view class="btn-in" bindtap="goMore" data-index="0"> <text>查看更多</text></view>
             </view>
@@ -59,15 +59,15 @@
                 </view>
                 <view class="rank-user">
                   <view class="rank-name">
-                    <text>云天明</text>
+                    <text>{{ item.create_name }}</text>
                   </view>
                 </view>
               </view>
               <view class="rank-score">
-                <text>16565积分</text>
+                <text>{{item.integral}}积分</text>
               </view>
             </view>
-            <view class="login-btn" wx:if="{{familyRank >= 10}}" bindtap="goMore" data-index="1">
+            <view class="login-btn" wx:if="{{familyRank === 10}}" bindtap="goMore" data-index="1">
               <image src="/static/login.png" />
               <view class="btn-in"> <text>查看更多</text></view>
             </view>

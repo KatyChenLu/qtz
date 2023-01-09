@@ -1,27 +1,45 @@
 // pages/practice/index.js
-import { request } from "../../api/index"
+import {
+  request
+} from "../../api/index"
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    pageNum:1,
-    pageSize:20,
-    list:[]
+    pageNum: 1,
+    pageSize: 20,
+    list: [],
+    isLoading: false
   },
   // 前往实践内页
-  go(){
+  go(e) {
     wx.navigateTo({
-      url: '/pages/practice/pratice_detail/index',
+      url: '/pages/practice/pratice_detail/index?id=' + e.currentTarget.dataset.id,
     })
   },
   // 获取实践动态文章列表
-  async getArticle(){
-    let res = await request("get","/practice/list",{pageNum:this.data.pageNum,pageSize:this.data.pageSize})
-    if(res.code != 200) return
-    this.setData({list:res.data.list})
-    console.log(this.data.list)
+  async getArticle() {
+    if (this.data.isLoading) return
+    this.setData({
+      isLoading: true
+    })
+    let res = await request("get", "/practice/list", {
+      pageNum: this.data.pageNum,
+      pageSize: this.data.pageSize
+    })
+    setTimeout(() => {
+      this.setData({
+        isLoading: false
+      })
+    }, 1000)
+    if (res.code != 200) return
+    if (res.data.list.length === 0) return
+    this.setData({
+      list: [...this.data.list, ...res.data.list],
+      pageNum: ++this.data.pageNum
+    })
   },
   /**
    * 生命周期函数--监听页面加载
@@ -69,7 +87,7 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom() {
-
+    this.getArticle()
   },
 
   /**

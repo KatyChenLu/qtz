@@ -1,9 +1,12 @@
 @charset "UTF-8";
 .content {
-  display: flex;
-  flex-wrap: wrap;
   padding: 20rpx 31rpx;
   box-sizing: border-box;
+}
+
+.content .content-box {
+  display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
 }
 

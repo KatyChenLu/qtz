@@ -1,15 +1,15 @@
 <!--pages/volunteer/volunterr_info/index.wxml-->
 <view class="content">
-  <view class="item" wx:for="{{10}}" wx:key="index" bindtap="go">
+  <view class="item" wx:for="{{list}}" wx:key="index" data-id="{{item.volunteer_id}}" bindtap="go">
     <view class="left">
       <view class="title">
-        <text>新时代文明实践中心志愿服务总队</text>
+        <text>{{item.volunteer_title}}</text>
       </view>
       <view class="date">
-        <text>时间：2021-01-01</text>
+        <text>时间：{{item.create_time}}</text>
       </view>
     </view>
     <view class="right">
-    <image src="/static/team_logo.png" mode="aspectFill"/></view>
+    <image src="{{item.logo}}" mode="aspectFill"/></view>
   </view>
 </view>

@@ -1,3 +1,7 @@
+import {
+  request
+} from "../../../api/index"
+
 // pages/volunteer/detail/index.js
 Page({
 
@@ -5,14 +9,22 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    detail: {}
   },
-
+  // 获取详情
+  async getDetail(volunteer_id) {
+    let res = await request("get", "/volunteer/detail", {
+      volunteer_id
+    })
+    this.setData({
+      detail: res.data.detail.detail
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-
+    this.getDetail(options.id)
   },
 
   /**

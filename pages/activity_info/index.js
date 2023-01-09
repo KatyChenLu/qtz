@@ -1,5 +1,10 @@
 // pages/activity_info/index.js
 import {
+  checkEmpty,
+  checkPhone,
+  say
+} from "../../utils/util"
+import {
   request
 } from "../../api/index"
 Page({
@@ -8,7 +13,9 @@ Page({
    * 页面的初始数据
    */
   data: {
-    score:0,
+    baoming_name: "",
+    baoming_phone: "",
+    score: 0,
     show: false,
     baoming: 6,
     hasbaoming: 4,
@@ -67,6 +74,7 @@ Page({
   },
   // 打开详情
   openDetail(e) {
+    if(e.currentTarget.dataset.status == 1) return
     this.setData({
       show: true
     })
@@ -101,8 +109,39 @@ Page({
       "infoList[1].name": this.data.activity.detail.start_time,
       "infoList[2].name": this.data.activity.detail.end_time
     })
-    let rest = parseInt((new Date(this.data.activity.detail.end_time).getTime() - new Date(this.data.activity.detail.start_time).getTime())/1000/60/60)
-    this.setData({score:rest*this.data.activity.detail.integral})
+    let rest = parseInt((new Date(this.data.activity.detail.end_time).getTime() - new Date(this.data.activity.detail.start_time).getTime()) / 1000 / 60 / 60)
+    this.setData({
+      score: rest * this.data.activity.detail.integral
+    })
+  },
+  // 活动报名人姓名
+  getName(e) {
+    if (e.detail.value.length >= 10) return
+    this.setData({
+      baoming_name: e.detail.value
+    })
+  },
+  // 获取报名电话
+  getPhone(e) {
+    if (e.detail.value.length > 13) return
+    this.setData({
+      baoming_phone: e.detail.value
+    })
+  },
+  // 提交信息
+  async submit(){
+    if(!checkEmpty(this.data.baoming_name)) return say("名字格式不正确") 
+    if(!checkPhone(this.data.baoming_phone)) return say("手机格式不正确")
+    let res = await request("post","/activity/apply",{
+      activity_id:this.data.activity.detail.activity_id,
+      apply_name:this.data.baoming_name,
+      apply_phone:this.data.baoming_phone
+    })
+    if(res.code != 200) return
+    say("报名成功")
+    wx.redirectTo({
+      url: '/pages/mine/my_activity/index',
+    })
   },
   /**
    * 生命周期函数--监听页面加载

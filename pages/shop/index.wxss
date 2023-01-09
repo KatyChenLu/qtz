@@ -115,10 +115,9 @@
 .shop .shop-list {
   display: flex;
   flex-wrap: wrap;
-  padding: 0 31rpx;
+  padding: 0 31rpx 20rpx 31rpx;
   margin-top: 0rpx;
   justify-content: space-between;
-  height: 70vh;
   overflow: scroll;
 }
 

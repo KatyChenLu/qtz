@@ -1,4 +1,7 @@
 // pages/shop/index.js
+import {
+  request
+} from "../../api/index"
 Page({
 
   /**
@@ -18,15 +21,31 @@ Page({
     // 当前商城分类
     current: 0,
     // 标签分类
-    tagList:[
-      {id:0,name:"文创产品"},
-      {id:1,name:"爱心捐赠"},
-      {id:2,name:"儿童教育"},
-      {id:3,name:"\"学习强国\"礼品"},
-      {id:4,name:"益智游戏玩具"}
+    tagList: [{
+        id: 0,
+        name: "文创产品"
+      },
+      {
+        id: 1,
+        name: "爱心捐赠"
+      },
+      {
+        id: 2,
+        name: "儿童教育"
+      },
+      {
+        id: 3,
+        name: "\"学习强国\"礼品"
+      },
+      {
+        id: 4,
+        name: "益智游戏玩具"
+      }
     ],
     // 当前选择的标签
-    tagCurrent:0,
+    tagCurrent: 0,
+    list: [],
+    userInfo: {}
   },
   // 选择商城类别
   changeSelect(e) {
@@ -36,7 +55,7 @@ Page({
       this.setData({
         current: e.currentTarget.dataset.index
       })
-    }else{
+    } else {
       wx.showModal({
         title: '温馨提示',
         content: '正在上线中'
@@ -44,29 +63,57 @@ Page({
     }
 
   },
+  // 获取商品分类
+  async getCategory() {
+    let res = await request('get', "/goods/category")
+    if (res.code != 200) return
+    this.setData({
+      tagList: res.data.list,
+      tagCurrent: res.data.list[0].category_id
+    })
+  },
+  // 获取商品列表
+  async getList() {
+    let res = await request("get", "/goods/list", {
+      category_id: this.data.tagCurrent
+    })
+    this.setData({
+      list: res.data.list
+    })
+  },
   // 打开兑换须知
-  openSwap(){
+  openSwap() {
     wx.navigateTo({
       url: '/pages/shop/younow/index',
     })
   },
+  // 获取用户信息
+  async getUserInfo() {
+    let res = await request("get", "/user/info")
+    this.setData({
+      userInfo: res.data.userInfo
+    })
+  },
   // 前往商品详情
-  goProduct(){
+  goProduct(e) {
+    const id = e.currentTarget.dataset.id
     wx.navigateTo({
-      url: '/pages/shop/product/index',
+      url: '/pages/shop/product/index?id=' + id,
     })
   },
   // 选择标签
-  changeTag(e){
+  changeTag(e) {
     this.setData({
-      tagCurrent:e.currentTarget.dataset.index
+      tagCurrent: e.currentTarget.dataset.index
     })
+    this.getList()
   },
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad(options) {
-
+  async onLoad(options) {
+    await Promise.all([this.getCategory(), this.getUserInfo()])
+    this.getList()
   },
 
   /**

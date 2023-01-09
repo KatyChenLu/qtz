@@ -145,16 +145,15 @@
     }
   }
   .detail-content{
+    margin:20rpx 0 0 0;
     padding: 0 31rpx;
     box-sizing: border-box;
   }
   .btn{
     position: fixed;
     z-index: 3;
-    background-color: #1E948A;
     bottom: 0;
     width: 100%;
-    color: white;
     text-align: center;
     font-size: 32rpx;
     padding: 40rpx 0;

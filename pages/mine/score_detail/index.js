@@ -1,3 +1,5 @@
+import { request } from "../../../api/index"
+
 // pages/mine/score_detail/index.js
 Page({
 
@@ -20,7 +22,17 @@ Page({
     ],
     recordList:[
       {id:0,title:"一次性医用口罩(儿童款)×10",time:"2023-12-11 18:45:33",tag:"购买商品",score:10},
-    ]
+    ],
+    restScope:0,
+  },
+  // 获取积分明细
+  async getList(){
+    let res = await request("get","/user/integral")
+    this.setData({
+      swapGetList:res.data.history,
+      recordList:res.data.order,
+      restScope:res.data.integral
+    })
   },
   changeSelect(e){
     this.setData({current:e.currentTarget.dataset.index})
@@ -29,7 +41,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-
+    this.getList()
   },
 
   /**

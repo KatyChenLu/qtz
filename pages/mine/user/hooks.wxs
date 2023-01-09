@@ -1,0 +1,6 @@
+var toString = function (num){
+  return num + ""
+}
+module.exports = {
+  toString:toString
+}

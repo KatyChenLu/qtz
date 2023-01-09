@@ -1,2 +1,4 @@
 <!--pages/shop/younow/index.wxml-->
-<text>pages/shop/younow/index.wxml</text>
+<view class="content">
+  <rich-text nodes="{{detail}}"/>
+</view>

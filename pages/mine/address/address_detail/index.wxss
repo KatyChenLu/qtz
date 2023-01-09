@@ -1,0 +1,75 @@
+.content {
+  margin: 32rpx 0 0 0;
+  padding: 0 0 120rpx 0;
+}
+
+.content .form-title {
+  font-size: 32rpx;
+  font-weight: bolder;
+}
+
+.content .form-title text {
+  position: relative;
+  padding: 0 0 0 24rpx;
+}
+
+.content .form-title text::after {
+  border-radius: 30rpx;
+  position: absolute;
+  content: "";
+  width: 8rpx;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background-color: #1E948A;
+}
+
+.content .form-item {
+  padding: 0 32rpx;
+  box-sizing: border-box;
+}
+
+.content .form-item .form-edit {
+  font-size: 32rpx;
+  margin: 24rpx 0;
+  background-color: #eeeeee;
+  padding: 24rpx;
+}
+
+.content .form-item .switch {
+  margin: 24rpx 0;
+}
+
+.content .form-textarea {
+  padding: 32rpx;
+  box-sizing: border-box;
+  font-size: 32rpx;
+}
+
+.content .form-textarea .form-edit {
+  width: 100%;
+  margin-top: 32rpx;
+  background-color: #eeeeee;
+  padding: 24rpx;
+  box-sizing: border-box;
+}
+
+.content .btn-group {
+  position: fixed;
+  padding: 0 0 32rpx 0;
+  bottom: 0rpx;
+  width: 100%;
+  font-size: 34rpx;
+  display: flex;
+  justify-content: space-between;
+  background-color: white;
+}
+
+.content .btn-group .btn {
+  width: 47%;
+  text-align: center;
+  border-radius: 50rpx;
+  padding: 12rpx 0;
+  background-color: #8BE2E8;
+  color: white;
+}

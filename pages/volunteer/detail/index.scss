@@ -1,0 +1,35 @@
+.content{
+  .intro{
+    margin: 30rpx 0 0 0;
+    padding: 0 32rpx;
+    box-sizing: border-box;
+    .title{
+      font-size: 34rpx;
+      font-weight: bolder;
+    }
+    .intro-unit{
+      font-size: 32rpx;
+      color: #999999;
+      margin: 10rpx 0;
+    }
+  }
+  .tab{
+    font-size: 34rpx;
+    margin: 30rpx 0;
+    font-weight: bolder;
+    text{
+      padding: 0 0 0 24rpx;
+      position: relative;
+      &::before{
+        bottom: 0;
+        left: 0;
+        content: "";
+        display: inline-block;
+        position: absolute;
+        width: 8rpx;
+        height: 100%;
+        background-color: #1E948A;
+      }
+    }
+  }
+}

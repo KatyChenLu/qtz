@@ -17,13 +17,13 @@
     </view>
     <view class="form-item">
       <view class="label special-label"><text>现居(工作、学习)地址：</text></view>
-      <picker class="picker" range="{{addressRange}}" range-key="name" bindchange="changeAddress">
+      <picker class="picker" range="{{addressRange}}" range-key="area_name" bindchange="changeAddress">
         <view class="select"><text>{{ address_show===""?"请选择":address_show }}</text></view>
       </picker>
     </view>
     <view class="form-item">
       <view class="label "><text>户籍所在地：</text></view>
-      <picker class="picker" range="{{hujiRange}}" range-key="name" bindchange="changeHuji">
+      <picker class="picker" range="{{hujiRange}}" range-key="area_name" bindchange="changeHuji">
         <view class="select"><text>{{ huji_show===""?"请选择":huji_show }}</text></view>
       </picker>
     </view>
@@ -44,7 +44,7 @@
       <view class="label family"><text>家庭成员：</text></view>
       <scroll-view class="scroll" scroll-y="{{true}}">
         <van-checkbox-group value="{{checkResult}}" bind:change="changeCheckBox">
-          <van-checkbox shape="square" class="checkbox" wx:for="{{ familyList }}" checked-color="#1E948A" wx:key="name" name="{{item.title}}">{{item.title}}</van-checkbox>
+          <van-checkbox shape="square" class="checkbox" wx:for="{{ familyList }}" checked-color="#1E948A" wx:key="name" name="{{item}}">{{item}}</van-checkbox>
         </van-checkbox-group>
       </scroll-view>
     </view>

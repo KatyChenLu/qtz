@@ -1,0 +1,42 @@
+<!--pages/mine/address/address_detail/index.wxml-->
+<view class="content">
+  <view class="form-item">
+    <view class="form-title"><text>收货人</text></view>
+    <input class="form-edit" bindinput="onchange" data-type="0" type="text" value="{{username}}" placeholder="请输入收货人姓名" />
+  </view>
+  <view class="form-item">
+    <view class="form-title"><text>手机</text></view>
+    <input class="form-edit" bindinput="onchange" data-type="1" type="number" value="{{phone}}" placeholder="请输入联系手机" />
+  </view>
+  <view class="form-item">
+    <view class="form-title"><text>所在区域</text></view>
+    <picker mode="selector" class="form-edit" range="{{region}}" range-key="area_name" bindchange="changeAddress">
+      <text>{{regionSelect===""?"请选择所在区域":regionSelect}}</text>
+    </picker>
+  </view>
+  <view class="form-textarea">
+    <view class="form-title"><text>详细地址</text></view>
+    <view class="textarea">
+      <textarea class="form-edit" value="{{detail}}" bindinput="onchange" data-type="2"></textarea>
+    </view>
+  </view>
+  <view class="form-item">
+    <view class="form-title"><text>默认地址</text></view>
+    <view class="switch">
+      <switch checked="{{default}}" color="#1E948A" bindchange="changeDefault"/>
+    </view>
+  </view>
+  <view class="btn-group" style="justify-content: center;" wx:if="{{!isEdit}}">
+    <view class="delete-btn btn" bindtap="addAddress">
+      <text>添加地址</text>
+    </view>
+  </view>
+  <view class="btn-group" wx:else>
+    <view class="delete-btn btn" bindtap="deleteAddress">
+      <text>删除收货地址</text>
+    </view>
+    <view class="edit-btn btn" bindtap="addAddress">
+      <text>确认修改</text>
+    </view>
+  </view>
+</view>

@@ -1,13 +1,36 @@
 // pages/mine/feedback/index.js
+import { request } from "../../../api/index"
+import { checkEmpty, say } from "../../../utils/util"
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    detail:""
   },
-
+  onChange(e){
+    this.setData({detail:e.detail.value})
+  },
+  async confirm(){
+    if(!checkEmpty(this.data.detail)) return say("内容不可为空") 
+    let res = await request("post","/feedback/submit",{detail:this.data.detail})
+    if(res.code != 200) return
+    wx.showModal({
+      title: '温馨提示',
+      content: '意见提交成功',
+      complete: (res) => {
+        if (res.cancel) {
+          wx.navigateBack()
+        }
+    
+        if (res.confirm) {
+          wx.navigateBack()
+        }
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */

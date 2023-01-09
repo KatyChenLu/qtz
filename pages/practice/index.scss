@@ -1,26 +1,34 @@
 .content {
-  display: flex;
-  flex-wrap: wrap;
   padding: 20rpx 31rpx;
   box-sizing: border-box;
-  justify-content: space-between;
+
+  .content-box {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
   .content-item {
     width: 329rpx;
     margin-bottom: 30rpx;
+
     .img {
-      width:100%;
+      width: 100%;
       height: 270rpx;
+
       image {
         width: 100%;
         height: 100%;
         border-radius: 15rpx;
       }
     }
+
     .title {
       font-size: 32rpx;
       font-weight: bolder;
       width: 100%;
       margin: 20rpx 0 10rpx 0;
+
       text {
         word-break: break-all;
         text-overflow: ellipsis;
@@ -31,7 +39,8 @@
         overflow: hidden;
       }
     }
-    .date{
+
+    .date {
       font-size: 26rpx;
       color: #999999;
     }

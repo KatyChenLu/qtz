@@ -1,2 +1,12 @@
 <!--pages/practice/pratice_detail/index.wxml-->
-<text>pages/practice/pratice_detail/index.wxml</text>
+<view class="content">
+  <view class="title">
+    <text>{{detail.practice_title}}</text>
+  </view>
+  <view class="time">
+    <text>{{detail.create_time}}</text>
+  </view>
+  <view class="detail">
+    <rich-text nodes="{{detail.content}}" />
+  </view>
+</view>

@@ -7,7 +7,7 @@
     </view>
   </view>
   <view class="editor">
-      <textarea class="textarea" value="{{textarea}}" placeholder="请输入描述"/>
+      <textarea class="textarea" bindinput="onChange" value="{{detail}}" placeholder="请输入描述"/>
   </view>
-  <my-btn title="提交"></my-btn>
+  <my-btn title="提交" bindtap="confirm"></my-btn>
 </view>

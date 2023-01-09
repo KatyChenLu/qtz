@@ -1,2 +1,32 @@
 <!--pages/volunteer/detail/index.wxml-->
-<text>pages/volunteer/detail/index.wxml</text>
+<view class="content">
+  <view class="logo">
+    <swiper indicator-dots="{{ true }}">
+      <swiper-item wx:for="{{ detail.images }}" wx:key="index">
+        <view class="item">
+          <image src="{{item}}" mode="aspectFill" />
+        </view>
+      </swiper-item>
+    </swiper>
+  </view>
+  <view class="intro">
+    <view class="title">
+      <text>{{detail.volunteer_title}}</text>
+    </view>
+    <view class="intro-unit">
+      <text>负责人：{{detail.person}}</text>
+    </view>
+    <view class="intro-unit">
+      <text>联系电话：{{detail.contact_number}}</text>
+    </view>
+    <view class="intro-unit">
+      <text>团队地址：{{detail.address}}</text>
+    </view>
+    <view class="tab">
+      <text>团队介绍</text>
+    </view>
+    <view class="rich">
+      <rich-text nodes="{{detail.content}}"/>
+    </view>
+  </view>
+</view>

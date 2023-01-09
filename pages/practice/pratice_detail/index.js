@@ -1,3 +1,7 @@
+import {
+  request
+} from "../../../api/index"
+
 // pages/practice/pratice_detail/index.js
 Page({
 
@@ -5,13 +9,24 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    detail: {}
   },
-
+  async getDetail(practice_id) {
+    let res = await request("get", "/practice/detail", {
+      practice_id
+    })
+    this.setData({
+      detail: res.data.detail
+    })
+    console.log(this.data.detail)
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
+    if (options.id) {
+      this.getDetail(options.id)
+    }
 
   },
 

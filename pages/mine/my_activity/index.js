@@ -1,43 +1,56 @@
 // pages/mine/my_activity/index.js
-
+import {
+  request
+} from "../../../api/index"
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    list: []
   },
-  go(){
+  go(e) {
+    const id = e.currentTarget.dataset.id
+    console.log(id)
     wx.navigateTo({
-      url: '/pages/activity_info/index',
+      url: '/pages/activity_info/index?activity_id=' + id,
     })
   },
   // 取消报名
-  cancelBaoming(){
+  cancelBaoming(e) {
     wx.showModal({
       title: '温馨提示',
       content: '是否取消报名',
-      success: (res) => {
+      success: async (res) => {
         if (res.cancel) {
           return
-        }else if (res.confirm){
+        } else if (res.confirm) {
+          let res = await request("post", "/activity/cancel", {
+            apply_id: e.currentTarget.dataset.item.apply_id
+          })
+          if (res.code != 200) return
           wx.showToast({
-            title:"取消报名成功",
-            icon:"none",
-            duration:1000,
-            complete:()=>{setTimeout(()=>{wx.hideToast()},1000)}
+            title: "取消报名成功",
+            icon: "none",
+            duration: 1000,
+            complete: () => {
+              setTimeout(() => {
+                wx.hideToast()
+              }, 1000)
+              this.getList()
+            }
           })
         }
-    
+
         if (res.confirm) {
-          
+
         }
       }
     })
   },
   // 微信扫一扫
-  scanCode(){
+  scanCode() {
     wx.scanCode({
       onlyFromCamera: false,
       scanType: ["qrCode"],
@@ -46,11 +59,59 @@ Page({
       },
     })
   },
+  // 获取我的活动
+  async getList() {
+    let res = await request('get', "/activity/mine")
+    if (res.code != 200) return
+    this.setData({
+      list: res.data.list
+    })
+  },
+  // 签到
+  async signIn(activity_id,captcha){
+    let res = await request("post","/activity/signIn",{activity_id,captcha})
+    if(res!= 200) return
+    wx.showModal({
+      title: '温馨提示',
+      content: '签到成功',
+      showCancel:false,
+      complete: (res) => {    
+        if (res.confirm) {
+          this.getList()
+        }
+      }
+    })
+  },
+  async signOut(activity_id,captcha){
+    let res = await request("post","/activity/signOut",{activity_id,captcha})
+    if(res!= 200) return
+    wx.showModal({
+      title: '温馨提示',
+      content: '签退成功',
+      showCancel:false,
+      complete: (res) => {    
+        if (res.confirm) {
+          this.getList()
+        }
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-
+    Promise.all([this.getList()])
+    if (options.scence !== undefined) {
+      const str = decodeURIComponent(options.scene)
+      const type = str.split(";")[0]
+      const activity_id = str.split(';')[1]
+      const captcha = str.split(";")[2]
+      if(type == "signIn"){
+        this.signIn(activity_id,captcha)
+      } else if (type == "signOut"){
+        this.signOut(activity_id,captcha)
+      }
+    }
   },
 
   /**

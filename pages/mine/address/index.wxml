@@ -1,28 +1,28 @@
 <!--pages/mine/address/index.wxml-->
 <view class="content">
   <view class="address">
-    <view class="address-item">
+    <view class="address-item" wx:for="{{list}}" wx:key="index"  >
       <view class="left">
         <view class="default">
-          <van-radio-group value="{{ radio }}" bind:change="onChange">
-            <van-radio name="1" icon-size="40rpx" checked-color="#00BAD3"></van-radio>
+          <van-radio-group value="{{ item.default==1?item.address_id:'-1' }}" bind:change="onChange" data-id="{{item.address_id}}">
+            <van-radio name="{{item.address_id}}"  icon-size="40rpx" checked-color="#00BAD3"></van-radio>
           </van-radio-group>
         </view>
         <view class="user-info">
           <view class="name-phone">
-            <text class="username">苏海恩</text>
-            <text class="phone">13826821659</text>
-            <text class="is-default">默认</text>
+            <text class="username">{{item.consignee_name}}</text>
+            <text class="phone">{{item.consignee_phone}}</text>
+            <text class="is-default" wx:if="{{item.default == 1 ? true : false}}">默认</text>
           </view>
-          <view class="address-detail"><text>东兰街区黄埔大道11栋4号</text></view>
+          <view class="address-detail"><text>{{item.address}}</text></view>
         </view>
       </view>
-      <view class="look">
+      <view class="look" catchtap="go" data-id="{{item.address_id}}">
         <image src="/static/foward.png" />
       </view>
     </view>
   </view>
-  <view class="login-btn">
+  <view class="login-btn" bindtap="go">
     <image src="/static/login.png" />
     <view class="btn-in"> <text>添加收货地址</text></view>
   </view>

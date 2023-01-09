@@ -25,7 +25,8 @@
     "pages/volunteer/detail/index",
     "pages/mine/family/index",
     "pages/mine/family/perfect/index",
-    "pages/mine/family/detail/index"
+    "pages/mine/family/detail/index",
+    "pages/mine/address/address_detail/index"
   ],
   "tabBar": {
     "color": "#000000",
@@ -34,26 +35,26 @@
       {
         "pagePath": "pages/index/index",
         "text": "首页",
-        "iconPath": "static/home.png",
-        "selectedIconPath": "static/home.png"
+        "iconPath": "/static/tab_new1.png",
+        "selectedIconPath": "/static/tab_newac1.png"
       },
       {
         "pagePath": "pages/activity/index",
         "text": "活动报名",
-        "iconPath": "static/baoming.png",
-        "selectedIconPath": "static/baoming.png"
+        "iconPath": "/static/tab_new2.png",
+        "selectedIconPath": "/static/tab_newac2.png"
       },
       {
         "pagePath": "pages/shop/index",
         "text": "文明超市",
-        "iconPath": "static/shop.png",
-        "selectedIconPath": "static/shop.png"
+        "iconPath": "/static/tab_new3.png",
+        "selectedIconPath": "/static/tab_newac3.png"
       },
       {
         "pagePath": "pages/mine/index",
         "text": "我的",
-        "iconPath": "static/mine.png",
-        "selectedIconPath": "static/mine.png"
+        "iconPath": "/static/tab_new4.png",
+        "selectedIconPath": "/static/tab_newac4.png"
       }
     ]
   },

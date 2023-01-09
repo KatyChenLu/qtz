@@ -1,3 +1,5 @@
+import { request } from "../../../api/index"
+
 // pages/shop/younow/index.js
 Page({
 
@@ -5,14 +7,18 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    detail:{}
   },
-
+  // 获取兑换须知
+  async getDetail() {
+    let res = await request("get","/settings/getRule")
+    this.setData({detail:res.data.conversion_rule})
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-
+    this.getDetail()
   },
 
   /**

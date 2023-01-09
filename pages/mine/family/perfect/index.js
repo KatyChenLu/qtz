@@ -84,14 +84,14 @@ Page({
   changeAddress(e) {
     console.log(e)
     this.setData({
-      address: this.data.addressRange[parseInt(e.detail.value)].id,
-      address_show: this.data.addressRange[parseInt(e.detail.value)].name
+      address: this.data.addressRange[parseInt(e.detail.value)].area_id,
+      address_show: this.data.addressRange[parseInt(e.detail.value)].area_name
     })
   },
   changeHuji(e) {
     this.setData({
-      huji: this.data.hujiRange[parseInt(e.detail.value)].id,
-      huji_show: this.data.hujiRange[parseInt(e.detail.value)].name
+      huji: this.data.hujiRange[parseInt(e.detail.value)].area_id,
+      huji_show: this.data.hujiRange[parseInt(e.detail.value)].area_name
     })
   },
   changeCheckBox(e) {
@@ -125,6 +125,12 @@ Page({
     if(res.code != 200) return
     console.log(res.data)
     this.setData({familyList:res.data.memberConfig})
+  },
+  // 获取户籍地区
+  async getRegion(){
+    let res = await request("get","/area/all")
+    if(res.code != 200) return
+    this.setData({addressRange:res.data,hujiRange:[{area_id:0,area_name:"其他户籍"},...res.data]})
   },
   // 提交表单
   async submit() {
@@ -169,7 +175,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-    this.getFamily()
+    Promise.all([this.getFamily(),this.getRegion()])
+    
   },
 
   /**

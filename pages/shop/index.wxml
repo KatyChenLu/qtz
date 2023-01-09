@@ -9,7 +9,7 @@
     </view>
     <view class="score-detail">
       <view class="score-count">
-        <text>10</text>
+        <text>{{userInfo.integral}}</text>
       </view>
       <view class="score-title">
         <text>兑换积分</text>
@@ -23,23 +23,23 @@
       </view>
     </view>
     <scroll-view class="tag-list" scroll-x="{{true}}">
-      <view class="['tag-item',{{tagCurrent == item.id ? 'tag-active' : ''}}]" wx:for="{{tagList}}" wx:key="id" bindtap="changeTag" data-index="{{item.id}}">
-        <text>{{item.name}}</text>
+      <view class="['tag-item',{{tagCurrent == item.category_id ? 'tag-active' : ''}}]" wx:for="{{tagList}}" wx:key="id" bindtap="changeTag" data-index="{{item.category_id}}">
+        <text>{{item.category_name}}</text>
       </view>
     </scroll-view>
     <scroll-view class="shop-box" scroll-y="{{true}}">
       <view class="shop-list">
-        <view class="list-item" wx:for="{{3}}" wx:key="index" bindtap="goProduct">
-          <image src="/static/shala.jpeg" mode="aspectFill" />
+        <view class="list-item" wx:for="{{list}}" wx:key="index" bindtap="goProduct" data-id="{{item.goods_id}}">
+          <image src="{{item.image}}" mode="aspectFill" />
           <view class="item-title">
-            <text>百利沙拉汁(千岛口味)asdasdasdasd</text>
+            <text>{{item.goods_name}}</text>
           </view>
           <view class="item-bottom">
             <view class="price">
-              <text>200积分</text>
+              <text>{{item.integral}}积分</text>
             </view>
             <view class="rest">
-              <text>剩余库存1126个</text>
+              <text>剩余库存{{item.residual_stock}}个</text>
             </view>
           </view>
         </view>

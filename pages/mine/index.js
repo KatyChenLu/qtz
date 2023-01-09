@@ -122,15 +122,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-    // return
-    const token = wx.getStorageSync('token')
-    if (token === "") {
-      wx.redirectTo({
-        url: '/pages/login/index',
-      })
-    } else {
-      this.getUserInfo()
-    }
+
   },
 
   /**
@@ -144,7 +136,15 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow() {
-
+    // return
+    const token = wx.getStorageSync('token')
+    if (token === "") {
+      wx.redirectTo({
+        url: '/pages/login/index',
+      })
+    } else {
+      this.getUserInfo()
+    }
   },
 
   /**

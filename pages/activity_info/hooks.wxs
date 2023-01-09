@@ -1,0 +1,17 @@
+var filter = function (end_time, status) {
+  if(Date.parse(end_time) <= Date.now()) return 1
+  if(status == 1) return 1
+  return 0
+}
+
+var filterText = function(end_time,status) {
+  if(Date.parse(end_time) <= Date.now()) return "活动报名已结束"
+  if(status == 1) return "你已报名该活动"
+  return "活动报名"
+}
+
+
+module.exports = {
+  filter:filter,
+  filterText:filterText
+}

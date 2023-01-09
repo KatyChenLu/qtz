@@ -6,10 +6,10 @@
         <image src="/static/search.png" />
       </view>
       <view class="search-in">
-        <input type="text" placeholder="请输入活动内容" />
+        <input type="text" value="{{config.activity_name}}" bindinput="inputName" placeholder="请输入活动内容" />
       </view>
     </view>
-    <view class="search-btn">
+    <view class="search-btn" bindtap="resetForm">
         <text>重置</text>
     </view>
   </view>

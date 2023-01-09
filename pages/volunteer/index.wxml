@@ -1,6 +1,6 @@
 <!--pages/volunteer/index.wxml-->
 <view class="content">
-  <image src="/static/zhiyuanzhebc.png" mode="widthFix" class="bc" />
+  <image src="{{img}}" mode="widthFix" class="bc" />
   <view class="content-box">
     <view class="login-btn one" bindtap="go" data-index="0">
       <image src="/static/login.png" />
@@ -14,7 +14,7 @@
   <van-popup show="{{show}}" close-on-click-overlay="{{true}}" bind:click-overlay="closePopup" round="{{true}}">
     <view class="code">
       <view class="code-in">
-        <image src="/static/code.png" mode="" />
+        <image src="{{qrcode}}" mode="" />
       </view>
       <text>请扫描二维码或截图保存使用扫一扫跳转到“i志愿”注册</text>
     </view>

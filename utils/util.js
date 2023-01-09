@@ -6,7 +6,7 @@ export const formatTime = date => {
   const minute = date.getMinutes()
   const second = date.getSeconds()
 
-  return `${[year, month, day].map(formatNumber).join('/')} ${[hour, minute, second].map(formatNumber).join(':')}`
+  return `${[year, month, day].map(formatNumber).join('-')}`
 }
 
 const formatNumber = n => {
@@ -38,6 +38,5 @@ export function checkPhone(phone) {
 }
 // 校验是否为空
 export function checkEmpty(str){
-  console.log(str)
   return /^[\u4e00-\u9fa5_a-zA-Z0-9]+$/.test(str)
 }

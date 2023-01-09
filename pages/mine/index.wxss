@@ -46,7 +46,6 @@
 }
 
 .mine .user-content .userinfo .top .avatar .avatar-in {
-  border: 1rpx solid #000;
   border-radius: 50%;
   width: 80%;
   height: 80%;

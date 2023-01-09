@@ -125,3 +125,92 @@
   margin-top: 20rpx;
   border-radius: 10rpx;
 }
+
+.content .popup-box {
+  padding: 32rpx;
+  box-sizing: border-box;
+  font-size: 32rpx;
+  position: relative;
+}
+
+.content .popup-box .title {
+  padding: 52rpx 0 0 0;
+}
+
+.content .popup-box .address-box {
+  padding: 0 0 80rpx 0;
+}
+
+.content .popup-box .address-item {
+  margin-top: 30rpx;
+  display: flex;
+  justify-content: space-between;
+  border-radius: 15rpx;
+  padding: 24rpx;
+  box-sizing: border-box;
+  box-shadow: 0 5rpx 10rpx rgba(153, 153, 153, 0.6);
+}
+
+.content .popup-box .address-item .left {
+  display: flex;
+}
+
+.content .popup-box .address-item .default {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.content .popup-box .address-item .user-info .name-phone {
+  font-weight: bolder;
+}
+
+.content .popup-box .address-item .user-info .name-phone .username {
+  font-size: 32rpx;
+}
+
+.content .popup-box .address-item .user-info .name-phone .phone {
+  font-size: 26rpx;
+  margin-left: 30rpx;
+}
+
+.content .popup-box .address-item .user-info .name-phone .is-default {
+  font-size: 26rpx;
+  color: white;
+  background-color: #FF9C00;
+  padding: 3rpx 8rpx;
+  margin-left: 30rpx;
+}
+
+.content .popup-box .address-item .user-info .address-detail {
+  margin-top: 7rpx;
+  font-size: 28rpx;
+}
+
+.content .popup-box .address-item .look {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.content .popup-box .address-item .look image {
+  width: 30rpx;
+  height: 30rpx;
+}
+
+.content .popup-box .book {
+  position: fixed;
+  width: 80%;
+  height: 80rpx;
+  background-color: #3DE0D4;
+  color: white;
+  bottom: 32rpx;
+  font-size: 34rpx;
+  text-align: center;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  border-radius: 30rpx;
+}

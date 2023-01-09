@@ -1,12 +1,12 @@
 <!--pages/pratice_place/index.wxml-->
 <view class="content">
   <view class="map">
-    <image src="/static/map.jpg" mode="widthFix" />
+    <image src="{{nowUrl}}" mode="widthFix" />
     <image src="/static/bannerbg1.png" mode="widthFix" />
   </view>
   <view class="area">
     <view class="area-item" wx:for="{{list}}" wx:key="id" bindtap="openDetail" data-detail="{{item}}">
-      <text>{{item.name}}</text>
+      <text>{{item.area_name}}</text>
     </view>
   </view>
   <van-popup show="{{show}}" close-on-click-overlay="{{true}}" bind:click-overlay="closePopup" round="{{true}}">
@@ -15,14 +15,14 @@
         <image src="/static/cancel.png" bindtap="closePopup" />
       </view>
       <view class="area-title">
-        <text>上园村</text>
+        <text>{{nowDetail.area_name}}</text>
       </view>
       <view class="area-time in">
         <image src="/static/time.png" />
         <view class="in-title">
-          <text>开放时间：周一到周日 8:30-17:30</text>
+          <text>{{nowDetail.open_txt}}</text>
         </view>
-        <image class="nav" src="/static/nav.png" mode="" bindtap="goMap"/>
+        <!-- <image class="nav" src="/static/nav.png" mode="" bindtap="goMap"/> -->
       </view>
       <view class="area-info in">
         <image src="/static/address.png" />
@@ -31,6 +31,9 @@
 
       </view>
       <view class="scroll">
+        <scroll-view scroll-y="{{true}}">
+          <rich-text nodes="{{nowDetail.content}}" />
+        </scroll-view>
       </view>
       <view>
 

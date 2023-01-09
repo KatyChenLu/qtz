@@ -1,4 +1,5 @@
 <!--pages/mine/score/index.wxml-->
+<wxs src="./hook.wxs" module="filter"></wxs>
 <view class="content">
   <view class="tabs">
     <text wx:for="{{tabs}}" wx:key="index" class="{{current == item.id ? 'active':''}}" bindtap="changeTabs" data-index="{{item.id}}">{{item.name}}</text>
@@ -7,10 +8,10 @@
     <view class="upload">
       <view class="label"><text>图片上传：</text></view>
       <view class="upload-img">
-        <image src="/static/upload.png" bindtap="chooseImage" />
+        <image src="/static/upload.png" bindtap="chooseImage"  />
       </view>
       <view class="image-list">
-        <image src="{{item.tempFilePath}}" class="image-item" mode="aspectFill" wx:for="{{imageList}}" wx:key="id" bindlongpress="deleteImage" data-id="{{item.id}}" />
+        <image src="{{item}}" class="image-item" mode="aspectFill" wx:for="{{imageList}}" wx:key="index" bindlongpress="deleteImage" data-index="{{index}}" />
       </view>
       <view class="tips" wx:if="{{imageList.length !== 0}}">
         <text>长按可删除图片</text>
@@ -18,11 +19,11 @@
     </view>
     <view class="unit">
       <view class="label"><text>负责单位：</text></view>
-      <picker mode="selector">
+      <picker mode="selector" range="{{unit}}" range-key="unit_name" bindchange="changeUnit">
         <view class="unit-info">
           <view class="unit-box">
             <view class="unit-info-detail">
-              <text>党建办工作室</text>
+              <text>{{nowUnit}}</text>
             </view>
             <view class="unit-img">
               <image src="/static/droppdown.png" />
@@ -36,17 +37,17 @@
       <view class="label">
         <text>描述：</text>
       </view>
-      <textarea class="textarea" value="{{textarea}}" placeholder="请输入描述"/>
+      <textarea class="textarea" bindinput="onInput" value="{{textarea}}" placeholder="请输入描述"/>
     </view>
-    <view class="btn">
+    <view class="btn" bindtap="scoreSubmit">
       <text>提交</text>
     </view>
   </view>
   <view class="record" wx:else>
-    <view class="record-item" wx:for="{{10}}">
+    <view class="record-item" wx:for="{{scoreList}}" wx:key="index">
       <text>申请日期：2022-12-24 18:15:07</text>
-      <text>申请单位：团委</text>
-      <text>审核状态：待审核</text>
+      <text>申请单位：{{item.unit_name}}</text>
+      <text>审核状态：{{filter.status(item.status)}}</text>
     </view>
   </view>
 </view>

@@ -1,45 +1,46 @@
 <!--pages/mine/user/index.wxml-->
+<wxs module="filter" src="./hooks.wxs"></wxs>
 <view class="content">
   <view class="content-box">
     <view class="avatar">
       <view class="user-name">
         <view class="detail">
-          <text>{{ nickName }}</text>
+          <text>{{ userInfo.nickName }}</text>
         </view>
         <view class="has-done">
-          <text class="has" wx:if="{{1 === 2}}">已完善</text>
+          <text class="has" wx:if="{{userInfo.is_perfect === 1}}">已完善</text>
           <text class="no" wx:else>未完善资料</text>
         </view>
       </view>
       <view class="img">
-        <image src="{{ avatarUrl }}" mode="aspectFill" />
+        <image src="{{ userInfo.avatarUrl }}" mode="aspectFill" />
       </view>
     </view>
     <view class="form-content">
       <my-form data="{{form.username}}">
-        <input type="text" value="{{form.username.default}}" />
+        <input type="text" bindinput="perfectInfo" placeholder="请填写联系人" data-type="{{0}}" value="{{userInfo.compellation}}" />
       </my-form>
       <my-form data="{{form.sex}}">
-        <van-radio-group value="{{ form.sex.default }}" bind:change="onChange">
+        <van-radio-group value="{{ filter.toString(userInfo.sex) }}" bind:change="onChange">
           <view class="radio-box">
-            <van-radio name="0" class="radio-one">男</van-radio>
-            <van-radio name="1">女</van-radio>
+            <van-radio name="1" class="radio-one">男</van-radio>
+            <van-radio name="2">女</van-radio>
           </view>
         </van-radio-group>
       </my-form>
       <my-form data="{{form.phone}}">
-        <input type="number" bindinput="getNowPhone" value="{{form.phone.default}}" placeholder="请填写手机号" />
+        <input type="number" bindinput="perfectInfo" value="{{userInfo.phone}}" placeholder="请填写手机号" data-type="{{1}}" />
       </my-form>
       <my-form data="{{form.family}}">
         <view class="family">
-          <text>{{form.family.default}}</text>
+          <text>{{userInfo.create_name}}</text>
         </view>
       </my-form>
       <my-form data="{{form.address}}">
-        <picker mode="selector">
+        <picker mode="selector" range="{{range}}" range-key="area_name" bindchange="selectRange">
           <view class="select-box">
             <view class="select-detail">
-              <text>请选择</text>
+              <text>{{address}}</text>
             </view>
             <view class="select-img">
               <image src="/static/foward.png" />
@@ -48,16 +49,16 @@
         </picker>
       </my-form>
       <my-form data="{{form.contactAddress}}">
-        <input type="text" placeholder="请填写地址" />
+        <input bindinput="perfectInfo" data-type="{{2}}" type="text" value="{{userInfo.contact_address}}" placeholder="请填写地址" />
       </my-form>
       <my-form data="{{form.idCard}}">
-        <input type="idcard" placeholder="请填写身份证号码" />
+        <input bindinput="perfectInfo" data-type="{{3}}" type="idcard" value="{{userInfo.idCard}}" placeholder="请填写身份证号码" />
       </my-form>
       <my-form data="{{form.ergentUser}}">
-        <input type="text" placeholder="请填写联系人" />
+        <input bindinput="perfectInfo" data-type="{{4}}" type="text" value="{{userInfo.eme_contact}}" placeholder="请填写联系人" />
       </my-form>
       <my-form data="{{form.ergentPhone}}">
-        <input type="text" placeholder="请填写联系人电话" />
+        <input bindinput="perfectInfo" data-type="{{5}}" type="text" value="{{userInfo.eme_phone}}" placeholder="请填写联系人电话" />
       </my-form>
     </view>
     <view class="tips">

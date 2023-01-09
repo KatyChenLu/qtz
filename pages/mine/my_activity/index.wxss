@@ -68,9 +68,16 @@
 .content .my-item .item-box .item-right {
   width: 30%;
   display: flex;
-  justify-content: flex-end;
   flex-direction: column;
+  justify-content: center;
   font-size: 32rpx;
+}
+
+.content .my-item .item-box .item-right .has-cancel {
+  text-align: center;
+  font-size: 32rpx;
+  font-weight: bolder;
+  color: red;
 }
 
 .content .my-item .item-box .item-right .btn {

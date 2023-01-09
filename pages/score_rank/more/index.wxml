@@ -7,15 +7,15 @@
       </view>
       <view class="rank-user">
         <view class="rank-img" wx:if="{{type == 0}}">
-          <image src="" mode="" />
+          <image src="{{item.avatarUrl}}" mode="aspectFill" />
         </view>
         <view class="rank-name">
-          <text>云天明</text>
+          <text>{{item.nickName}}</text>
         </view>
       </view>
     </view>
     <view class="rank-score">
-      <text>16565积分</text>
+      <text>{{item.integral}}积分</text>
     </view>
   </view>
 </view>

@@ -1,13 +1,122 @@
 <!--pages/randomClap/randomClap.wxml-->
-<view class="content">
+
+<!-- <view class="content">
   <view class="home-list-title">
     <view class="title-box">
-      <!-- <image class="img" src="/static/acticveBaoming.png" /> -->
       <text>姓名</text>
     </view>
+    <input></input>
+    <view class="title-box">
+      <text>姓名</text>
+    </view>
+    <input></input>
   </view>
   <view class="editor">
       <textarea class="textarea" bindinput="onChange" value="{{detail}}" placeholder="请输入描述"/>
   </view>
   <my-btn title="提交" bindtap="confirm"></my-btn>
+</view> -->
+<form bindsubmit="submit">
+  <view class="forms">
+    <view class="weui-cell__bd">
+      <view class="li_title">姓名</view>
+      <input class="weui-input" placeholder-style="color:#cacaca;" placeholder="姓名" name="name"
+        value="{{oldValue.postName}}" />
+    </view>
+    <view class="weui-cell__bd">
+      <view class="li_title">联系方式</view>
+      <input class="weui-input" placeholder-style="color:#cacaca;" type="number" placeholder="请输入你的联系方式" name="phone"
+        value="{{oldValue.postMobile}}" />
+    </view>
+    <view>
+      <view class="li_title">获取位置</view>
+      <picker mode="region" bindchange="bindRegionChange" value="{{region}}">
+        <view class="picker weui-cell__bd weui-input">
+          {{!region[2] ? "省、市、区、乡镇/街道" : region[0] + ' ' + region[1] + ' ' + region[2]}}
+          <!-- <image src="/images/scoreShop/rightArrow.png" style="width:24rpx;height:24rpx;"></image> -->
+        </view>
+      </picker>
+    </view>
+    <view class="weui-cell__bd">
+      <view class="li_title">随手拍类型</view>
+      <!-- <picker mode = "selector" range="{{shpArray}}"></picker> -->
+      <picker bindchange="bindPickerChange" value="{{index}}" range="{{shpArray}}">
+        <view class="picker">
+          {{shpArray[index]?shpArray[index]:'请选择随手拍类型'}}
+        </view>
+      </picker>
+    </view>
+    <view class="weui-cell__bd">
+      <view class="li_title">我有话说</view>
+      <view class="editor">
+        <!-- <textarea class="textarea" bindinput="onChange" value="{{detail}}" placeholder="请输入描述" /> -->
+        <textarea class='evaluate_word' maxlength='1000' placeholder='描述你随手拍的内容' bindinput='bindtext' placeholder-style='color:rgba(153,153,153,1)'></textarea>
+        </view>
+    </view>
+    <view class="weui-cell__bd">
+      <view class="optClass" style='padding:0 30rpx;flex-wrap:wrap;'>
+    <view class='uploadimgbox' wx:for="{{upImgArr}}" wx:key="item">
+        <image class='uploadimg' src='{{item.path}}' data-presrc="{{item.path}}" bindtap='previewImg' mode='aspectFill'></image>
+        <cover-view class='progress' wx:if="{{upFilesProgress}}">
+            {{item.progress}}%
+        </cover-view>
+        <cover-view class='delbtn' data-index="{{index}}" data-type="image" bindtap='delFile'>X</cover-view>
+    </view>
+    <view class='uploadimgbox' wx:for="{{upVideoArr}}" wx:key="item">
+        <video class='uploadimg' src="{{item.tempFilePath}}"  controls ></video>
+       <cover-view class='progress' wx:if="{{upFilesProgress}}">
+            {{item.progress}}%
+        </cover-view>
+        <cover-view class='delbtn' data-index="{{index}}" data-type="video" bindtap='delFile'>X</cover-view>
+    </view>
+    
+    <!-- <view class='uploadimgbox' wx:if="{{upFilesBtn}}">
+        <image class='uploadbtn' bindtap='uploadFiles' src='./addimgsbtn.png'></image>
+    </view> -->
+
+
+    <view class="img-list">
+    <!-- 上传列表 -->
+    <view class="upload-video">
+      <block wx:if="{{src != ''}}">
+        <video src="{{src}}" class="img-li"></video>
+        <image class="icon-deletes" src="./addimgsbtn.png" bindtap="deleteVideo"></image>
+      </block>
+    </view>
+    <block wx:for="{{imageList}}" wx:key="index">
+      <view class="img-li">
+        <view class="img-li" bindtap="previewImg">
+          <image class="uploading-icon" src="{{item}}"></image>
+        </view>
+        <image class="icon-delete" src="./addimgsbtn.png" bindtap="deleteImg"></image>
+      </view>
+    </block>
+    <!-- 上传图片/视频 S -->
+    <view class="img-li" wx:if="{{imageList.length<=8}}" bindtap="actioncnt">
+      <image class="uploading-icon" src="./addimgsbtn.png"></image>
+    </view>
+    <!-- 上传图片/视频 E -->
+  </view>
+
+
+
+
+
+
+    <view class="tip_view">（推荐横屏照片/横屏拍摄）最多上传9张图或一个不超过30秒的视频</view>
+    <view class='quan'>
+      <view class='quan_left'>
+        <!-- <view class='bind_quan {{flag==true?"back":""}}'></view> -->
+        <image wx:if='{{isSelect}}' src='/static/select.png' bindtap='select'></image>
+      <image wx:else src='/static/unSelect.png' bindtap='select'></image>
+        <view>是否匿名</view>
+      </view>
+    </view>
 </view>
+    </view>
+  
+  </view>
+
+
+   <button class='preservation' bindtap="confirm">保存</button>
+</form>

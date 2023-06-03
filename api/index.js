@@ -17,7 +17,7 @@ export function request(type, url, data = {}, load = false) {
       title: '加载中',
       mask: true
     })
-    let final_url = baseUrl + url
+    let final_url = 'https://if.shanyuekj.com/client_api' + url
     wx.request({
       url: final_url,
       method: type,

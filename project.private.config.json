@@ -20,6 +20,18 @@
         {
           "name": "pages/randomClap/randomClap",
           "pathName": "pages/randomClap/randomClap",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/randomClap/randomClap",
+          "pathName": "pages/randomClap/randomClap",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/mine/score/index",
+          "pathName": "pages/mine/score/index",
           "scene": null
         }
       ]

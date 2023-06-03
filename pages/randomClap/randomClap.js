@@ -12,6 +12,10 @@ Page({
    * 页面的初始数据
    */
   data: {
+    nameValue:'',
+    mobileValue:'',
+    subInfo:{},
+    typeName:'',
     selectImg: "/images/scoreShop/select.png",
     selectedImg: "/images/scoreShop/selected.png",
     oldValue: '',
@@ -62,8 +66,10 @@ Page({
   },
   bindPickerChange: function (e) {
     console.log('picker发送选择改变，携带值为', e.detail.value)
-    this.setData({
-      index: e.detail.value
+    var that = this
+    that.setData({
+      index: e.detail.value,
+      typeName:that.data.shpArray[e.detail.value]
     })
   },
   /**************************************************************
@@ -162,13 +168,6 @@ Page({
       })
       return
     }
-    // if (!data.zipCode || data.zipCode.length != 6 ) {
-    //   wx.showToast({
-    //     title: '请留下正确邮政编码',
-    //     icon: 'none'
-    //   })
-    //   return
-    // }
 
     if (this.data.oldValue) { //编辑
       data.id = this.data.oldValue.id
@@ -434,7 +433,22 @@ Page({
         textarea: e.detail.value
       })
     },
-
+    getPhoneNumber (e) {
+      console.log(e.detail.code)
+      //https://developers.weixin.qq.com/miniprogram/dev/OpenApiDoc/user-info/phone-number/getPhoneNumber.html
+    },
+    subinfo(e){
+      const type = e.currentTarget.dataset.type
+      if (type === 'name') {
+        this.setData({
+          "subInfo.name": e.detail.value
+        })
+      } else if(type === 'phone') {
+        this.setData({
+          "subInfo.phone": e.detail.value
+        })
+      }
+    },
 async confirm(){
   
   let res = await request("post","/feedback/submit",{

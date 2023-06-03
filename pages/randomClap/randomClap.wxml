@@ -1,39 +1,33 @@
 <!--pages/randomClap/randomClap.wxml-->
 
-<!-- <view class="content">
-  <view class="home-list-title">
-    <view class="title-box">
-      <text>姓名</text>
-    </view>
-    <input></input>
-    <view class="title-box">
-      <text>姓名</text>
-    </view>
-    <input></input>
-  </view>
-  <view class="editor">
-      <textarea class="textarea" bindinput="onChange" value="{{detail}}" placeholder="请输入描述"/>
-  </view>
-  <my-btn title="提交" bindtap="confirm"></my-btn>
-</view> -->
 <form bindsubmit="submit">
   <view class="forms">
     <view class="weui-cell__bd">
       <view class="li_title">姓名</view>
-      <input class="weui-input" placeholder-style="color:#cacaca;" placeholder="姓名" name="name"
-        value="{{oldValue.postName}}" />
+      <input class="weui-input" bindinput="subinfo" data-type="name" placeholder-style="color:#cacaca;" placeholder="姓名" name="name"
+        value="{{subInfo.nameValue}}" />
     </view>
     <view class="weui-cell__bd">
       <view class="li_title">联系方式</view>
-      <input class="weui-input" placeholder-style="color:#cacaca;" type="number" placeholder="请输入你的联系方式" name="phone"
-        value="{{oldValue.postMobile}}" />
+      <view class="phone_box">
+        <input class="weui-input"  bindinput="subinfo" data-type="phone" placeholder-style="color:#cacaca;" type="number" placeholder="请输入你的联系方式" name="phone"
+        value="{{subInfo.mobileValue}}" />
+        <view class="phone_right">
+          <text class="phone_btn_text">微信授权</text>
+          <button class="phone_btn" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">
+        
+      </button>
+        </view>
+      
+      </view>
+     
+
     </view>
     <view>
       <view class="li_title">获取位置</view>
       <picker mode="region" bindchange="bindRegionChange" value="{{region}}">
         <view class="picker weui-cell__bd weui-input">
           {{!region[2] ? "省、市、区、乡镇/街道" : region[0] + ' ' + region[1] + ' ' + region[2]}}
-          <!-- <image src="/images/scoreShop/rightArrow.png" style="width:24rpx;height:24rpx;"></image> -->
         </view>
       </picker>
     </view>

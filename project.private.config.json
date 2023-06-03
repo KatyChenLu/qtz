@@ -6,15 +6,6 @@
     "urlCheck": false
   },
   "condition": {
-    "plugin": {
-      "list": []
-    },
-    "game": {
-      "list": []
-    },
-    "gamePlugin": {
-      "list": []
-    },
     "miniprogram": {
       "list": [
         {
@@ -32,6 +23,7 @@
         {
           "name": "pages/mine/score/index",
           "pathName": "pages/mine/score/index",
+          "query": "",
           "scene": null
         }
       ]

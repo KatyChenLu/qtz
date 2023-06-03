@@ -45,11 +45,12 @@
       "ignore": [],
       "disablePlugins": [],
       "outputPath": ""
-    }
+    },
+    "condition": false
   },
   "compileType": "miniprogram",
   "libVersion": "2.19.4",
-  "appid": "wx4dd2dec6e25538a0",
+  "appid": "wx18f533f5d59de883",
   "projectname": "miniprogram-92",
   "editorSetting": {
     "tabIndent": "insertSpaces",

@@ -4,7 +4,36 @@ page{
   background: #f8f8f8;
   font-size: 24rpx;
 }
-
+.phone_box{
+  display: flex;
+}
+.phone_btn{
+  color: #000;
+  background-color: green;
+  width: 150rpx;
+  height: 46rpx;
+  padding: 0;
+  
+}
+.phone_btn::after {
+  border: none;
+}
+.phone_right{
+  display: flex;
+  position: relative;
+}
+.phone_btn_text{
+  position: absolute;
+  top:0;
+  right:0;
+color: #fff;
+height: 100%;
+width: 100%;
+text-align: center;
+font-size: 24rpx;
+line-height: 46rpx;
+z-index: 99;
+}
 .forms {
   background: #fff;
   box-sizing: border-box;

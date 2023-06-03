@@ -49,11 +49,11 @@
   },
   "compileType": "miniprogram",
   "libVersion": "2.19.4",
-  "appid": "wx29aacdbed965e5fa",
+  "appid": "wx4dd2dec6e25538a0",
   "projectname": "miniprogram-92",
-  "condition": {},
   "editorSetting": {
     "tabIndent": "insertSpaces",
     "tabSize": 2
-  }
+  },
+  "condition": {}
 }

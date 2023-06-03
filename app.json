@@ -26,7 +26,8 @@
     "pages/mine/family/index",
     "pages/mine/family/perfect/index",
     "pages/mine/family/detail/index",
-    "pages/mine/address/address_detail/index"
+    "pages/mine/address/address_detail/index",
+    "pages/randomClap/randomClap"
   ],
   "tabBar": {
     "color": "#000000",
@@ -60,7 +61,7 @@
   },
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#1E948A",
+    "navigationBarBackgroundColor": "#49d26f",
     "navigationBarTextStyle": "white",
     "backgroundColor": "#F1F4F9"
   },

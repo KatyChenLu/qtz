@@ -1,0 +1,13 @@
+<!--pages/randomClap/randomClap.wxml-->
+<view class="content">
+  <view class="home-list-title">
+    <view class="title-box">
+      <!-- <image class="img" src="/static/acticveBaoming.png" /> -->
+      <text>姓名</text>
+    </view>
+  </view>
+  <view class="editor">
+      <textarea class="textarea" bindinput="onChange" value="{{detail}}" placeholder="请输入描述"/>
+  </view>
+  <my-btn title="提交" bindtap="confirm"></my-btn>
+</view>

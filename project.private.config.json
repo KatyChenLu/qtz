@@ -4,5 +4,25 @@
   "setting": {
     "compileHotReLoad": true,
     "urlCheck": false
+  },
+  "condition": {
+    "plugin": {
+      "list": []
+    },
+    "game": {
+      "list": []
+    },
+    "gamePlugin": {
+      "list": []
+    },
+    "miniprogram": {
+      "list": [
+        {
+          "name": "pages/randomClap/randomClap",
+          "pathName": "pages/randomClap/randomClap",
+          "scene": null
+        }
+      ]
+    }
   }
 }

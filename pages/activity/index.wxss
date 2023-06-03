@@ -39,7 +39,7 @@
   border-radius: 15rpx;
   color: white;
   font-weight: bold;
-  background-color: #1E948A;
+  background-color: #e6212b;
   margin-left: 20rpx;
 }
 

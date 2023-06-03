@@ -25,11 +25,17 @@ Page({
         path: "/pages/practice/index"
       },
       {
-        id: 1,
+        id: 4,
         url: "/static/bzdt.png",
-        name: "积分排行",
-        path: "/pages/score_rank/index"
+        name: "随手拍",
+        path: "/pages/randomClap/randomClap"
       },
+    {
+      id: 1,
+      url: "/static/bzdt.png",
+      name: "积分排行",
+      path: "/pages/score_rank/index"
+    },
       {
         id: 2,
         url: "/static/hdzx.png",

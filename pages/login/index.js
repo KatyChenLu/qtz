@@ -35,7 +35,7 @@ Page({
         wx.setStorageSync('nickName', res.userInfo.nickName)
         wx.setStorageSync("phone", this.data.phone)
         let result = await request("post", "/user/login", {
-          phone: this.data.phone,
+          phone: '',
           code: this.data.code.toUpperCase(),
           avatarUrl:wx.getStorageSync('avatarUrl'),
           nickName:wx.getStorageSync("nickName")
@@ -46,6 +46,18 @@ Page({
         this.setData({isLoading: true})
       }
     })
+  },
+  async justLogin(){
+    let result = await request("post", "/user/login", {
+      phone: '18501610860',
+      code: 'GVMHX',
+      avatarUrl:'luludetouxiang',
+      nickName:'lulu'
+    }, true)
+    wx.setStorageSync("token", result.data.access_token)
+    if (!result.code == 200) return
+    wx.switchTab({url: '/pages/index/index',})
+    this.setData({isLoading: true})
   },
   // 获取验证码
   async getCode() {

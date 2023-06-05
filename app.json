@@ -27,6 +27,8 @@
     "pages/mine/family/perfect/index",
     "pages/mine/family/detail/index",
     "pages/mine/address/address_detail/index",
+    "pages/mine/team/address",
+    "pages/mine/team/edit",
     "pages/randomClap/randomClap"
   ],
   "tabBar": {

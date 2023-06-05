@@ -19,6 +19,11 @@ Page({
         name: "我的活动"
       },
       {
+        id: 7,
+        img: "/static/act.png",
+        name: "我的组员"
+      },
+      {
         id: 2,
         img: "/static/collect.png",
         name: "积分认定"
@@ -89,6 +94,9 @@ Page({
     })
     if (index == 6) return wx.navigateTo({
       url: '/pages/mine/feedback/index',
+    })
+    if (index == 7) return wx.navigateTo({
+      url: '/pages/mine/team/address',
     })
 
   },

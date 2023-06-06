@@ -35,7 +35,7 @@ Page({
         wx.setStorageSync('nickName', res.userInfo.nickName)
         wx.setStorageSync("phone", this.data.phone)
         let result = await request("post", "/user/login", {
-          phone: '',
+          phone: this.data.phone,
           code: this.data.code.toUpperCase(),
           avatarUrl:wx.getStorageSync('avatarUrl'),
           nickName:wx.getStorageSync("nickName")

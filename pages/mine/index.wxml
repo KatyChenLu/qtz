@@ -7,9 +7,10 @@
     <view class="userinfo" bindtap="goUser" data-index="0">
       <view class="top">
         <view class="avatar">
-          <image class="avatar-in" src="{{ userInfo.avatarUrl }}" mode="aspectFill" />
+          <image wx:if="{{!isTeamItem}}" class="avatar-in" src="{{ userInfo.avatarUrl }}" mode="aspectFill" />
+          <view wx:if="{{isTeamItem}}" class="avatar-in1" >组员登录</view>
         </view>
-        <view class="info">
+        <view class="info" wx:if="{{!isTeamItem}}">
           <view class="nickname">
             <view class="my-name">
               <text>{{ userInfo.nickName }}</text>
@@ -32,6 +33,22 @@
               <text>你尚未加入家庭</text>
             </view>
           </view>
+        </view>
+        <view class="info1" wx:if="{{isTeamItem}}">
+          <view class="nickname">
+            <view class="my-name">
+              <text>组员登录：{{ teamItemInfo.name }}</text>
+            </view>
+          </view>
+          <view class="phone">
+            <text>组员手机：{{ teamItemInfo.mobile }}</text>
+          </view>
+          <view class="phone">
+            <text>组员身份证：{{ teamItemInfo.idnum }}</text>
+          </view>
+        </view>
+        <view class="info" wx:if="{{isTeamItem}}">
+          <text catchtap="changeBackToLeader">切换回组长</text>
         </view>
       </view>
       <view class="bottom">

@@ -230,18 +230,42 @@ z-index: 99;
 .img-list {
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
+}
+.img-list:after {
+  content: "";
+  width: 30%;
 }
 .img-li {
+  width: 30%;
+  height: 200rpx;
+  margin-bottom: 20rpx;
+}
+.img-li_image{
   width: 200rpx;
   height: 200rpx;
-  margin-right: 39rpx;
-  margin-bottom: 23rpx;
+}
+.upload-video{
+  width: 100%;
+}
+.img-li_video{
+  width: 100%;
+  /* height: 200rpx; */
 }
 
 .img-li:first-child {
   margin-right: 0;
 }
 .img-li image {
+  width: 100%;
+  height: 100%;
+}
+.img-li_image image {
+  width: 100%;
+  height: 100%;
+}
+.img-li_view{
   width: 100%;
   height: 100%;
 }

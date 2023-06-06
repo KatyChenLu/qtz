@@ -4,23 +4,21 @@
   <view class="forms">
     <view class="weui-cell__bd">
       <view class="li_title">姓名</view>
-      <input class="weui-input" bindinput="subinfo" data-type="name" placeholder-style="color:#cacaca;" placeholder="姓名" name="name"
-        value="{{subInfo.nameValue}}" />
+      <input class="weui-input" bindinput="subinfo" data-type="name" placeholder-style="color:#cacaca;" placeholder="姓名" name="name" value="{{subInfo.nameValue}}" />
     </view>
     <view class="weui-cell__bd">
       <view class="li_title">联系方式</view>
       <view class="phone_box">
-        <input class="weui-input"  bindinput="subinfo" data-type="phone" placeholder-style="color:#cacaca;" type="number" placeholder="请输入你的联系方式" name="phone"
-        value="{{subInfo.mobileValue}}" />
+        <input class="weui-input" bindinput="subinfo" data-type="phone" placeholder-style="color:#cacaca;" type="number" placeholder="请输入你的联系方式" name="phone" value="{{subInfo.mobileValue}}" />
         <view class="phone_right">
           <text class="phone_btn_text">微信授权</text>
           <button class="phone_btn" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">
-        
-      </button>
+
+          </button>
         </view>
-      
+
       </view>
-     
+
 
     </view>
     <view>
@@ -45,72 +43,74 @@
       <view class="editor">
         <!-- <textarea class="textarea" bindinput="onChange" value="{{detail}}" placeholder="请输入描述" /> -->
         <textarea class='evaluate_word' maxlength='1000' placeholder='描述你随手拍的内容' bindinput='bindtext' placeholder-style='color:rgba(153,153,153,1)'></textarea>
-        </view>
+      </view>
     </view>
     <view class="weui-cell__bd">
-      <view class="optClass" style='padding:0 30rpx;flex-wrap:wrap;'>
-    <view class='uploadimgbox' wx:for="{{upImgArr}}" wx:key="item">
-        <image class='uploadimg' src='{{item.path}}' data-presrc="{{item.path}}" bindtap='previewImg' mode='aspectFill'></image>
-        <cover-view class='progress' wx:if="{{upFilesProgress}}">
+      <view class="optClass" style='flex-wrap:wrap;'>
+        <view class='uploadimgbox' wx:for="{{upImgArr}}" wx:key="item">
+          <image class='uploadimg' src='{{item.path}}' data-presrc="{{item.path}}" bindtap='previewImg' mode='aspectFill'></image>
+          <cover-view class='progress' wx:if="{{upFilesProgress}}">
             {{item.progress}}%
-        </cover-view>
-        <cover-view class='delbtn' data-index="{{index}}" data-type="image" bindtap='delFile'>X</cover-view>
-    </view>
-    <view class='uploadimgbox' wx:for="{{upVideoArr}}" wx:key="item">
-        <video class='uploadimg' src="{{item.tempFilePath}}"  controls ></video>
-       <cover-view class='progress' wx:if="{{upFilesProgress}}">
+          </cover-view>
+          <cover-view class='delbtn' data-index="{{index}}" data-type="image" bindtap='delFile'>X</cover-view>
+        </view>
+        <view class='uploadimgbox' wx:for="{{upVideoArr}}" wx:key="item">
+          <video class='uploadimg' src="{{item.tempFilePath}}" controls></video>
+          <cover-view class='progress' wx:if="{{upFilesProgress}}">
             {{item.progress}}%
-        </cover-view>
-        <cover-view class='delbtn' data-index="{{index}}" data-type="video" bindtap='delFile'>X</cover-view>
-    </view>
-    
-    <!-- <view class='uploadimgbox' wx:if="{{upFilesBtn}}">
+          </cover-view>
+          <cover-view class='delbtn' data-index="{{index}}" data-type="video" bindtap='delFile'>X</cover-view>
+        </view>
+
+        <!-- <view class='uploadimgbox' wx:if="{{upFilesBtn}}">
         <image class='uploadbtn' bindtap='uploadFiles' src='./addimgsbtn.png'></image>
     </view> -->
 
 
-    <view class="img-list">
-    <!-- 上传列表 -->
-    <view class="upload-video">
-      <block wx:if="{{src != ''}}">
-        <video src="{{src}}" class="img-li"></video>
-        <image class="icon-deletes" src="./addimgsbtn.png" bindtap="deleteVideo"></image>
-      </block>
-    </view>
-    <block wx:for="{{imageList}}" wx:key="index">
-      <view class="img-li">
-        <view class="img-li" bindtap="previewImg">
-          <image class="uploading-icon" src="{{item}}"></image>
+        <view class="img-list">
+          <!-- 上传列表 -->
+          <block wx:if="{{src != ''}}">
+            <view class="upload-video">
+
+              <video src="{{src}}" class="img-li_video"></video>
+              <image class="icon-deletes" src="./addimgsbtn.png" bindtap="deleteVideo"></image>
+
+            </view>
+          </block>
+          <block wx:for="{{imageList}}" wx:key="index">
+            <view class="img-li">
+              <view class="img-li_view" bindtap="previewImg">
+                <image class="uploading-icon" src="{{item}}"></image>
+              </view>
+              <image class="icon-delete" src="./addimgsbtn.png" bindtap="deleteImg"></image>
+            </view>
+          </block>
+          <!-- 上传图片/视频 S -->
+          <view class="img-li_image" wx:if="{{imageList.length<=8&&src == ''}}" bindtap="actioncnt">
+            <image class="uploading-icon" src="./addimgsbtn.png"></image>
+          </view>
+          <!-- 上传图片/视频 E -->
         </view>
-        <image class="icon-delete" src="./addimgsbtn.png" bindtap="deleteImg"></image>
+
+
+
+
+
+
+        <view class="tip_view">（推荐横屏照片/横屏拍摄）最多上传9张图或一个不超过30秒的视频</view>
+        <view class='quan'>
+          <view class='quan_left'>
+            <!-- <view class='bind_quan {{flag==true?"back":""}}'></view> -->
+            <image wx:if='{{isSelect}}' src='/static/select.png' bindtap='select'></image>
+            <image wx:else src='/static/unSelect.png' bindtap='select'></image>
+            <view>是否匿名</view>
+          </view>
+        </view>
       </view>
-    </block>
-    <!-- 上传图片/视频 S -->
-    <view class="img-li" wx:if="{{imageList.length<=8}}" bindtap="actioncnt">
-      <image class="uploading-icon" src="./addimgsbtn.png"></image>
     </view>
-    <!-- 上传图片/视频 E -->
+
   </view>
 
 
-
-
-
-
-    <view class="tip_view">（推荐横屏照片/横屏拍摄）最多上传9张图或一个不超过30秒的视频</view>
-    <view class='quan'>
-      <view class='quan_left'>
-        <!-- <view class='bind_quan {{flag==true?"back":""}}'></view> -->
-        <image wx:if='{{isSelect}}' src='/static/select.png' bindtap='select'></image>
-      <image wx:else src='/static/unSelect.png' bindtap='select'></image>
-        <view>是否匿名</view>
-      </view>
-    </view>
-</view>
-    </view>
-  
-  </view>
-
-
-   <button class='preservation' bindtap="confirm">保存</button>
+  <button class='preservation' bindtap="confirm">保存</button>
 </form>

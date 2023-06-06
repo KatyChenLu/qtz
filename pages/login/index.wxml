@@ -20,6 +20,6 @@
         <text wx:else="">{{count}}</text>
       </view>
     </view>
-    <my-btn title="登录" bindtap="justLogin"></my-btn>
+    <my-btn title="登录" bindtap="login"></my-btn>
   </view>
 </view>

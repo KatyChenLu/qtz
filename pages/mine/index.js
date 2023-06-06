@@ -8,6 +8,8 @@ Page({
    * 页面的初始数据
    */
   data: {
+    isTeamItem:true,
+    teamItemInfo:{},
     selectList: [{
         id: 0,
         img: "/static/info.png",
@@ -139,13 +141,34 @@ Page({
   onReady() {
 
   },
+  changeBackToLeader(){
 
+    wx.setStorageSync('teamItemLogin',  {})
+    let addressList = wx.getStorageSync('address') || []
+    addressList.forEach((a)=>{
+      a.isDefault = false;    
+      a.selected = false;
+    })
+    wx.setStorageSync('address',  addressList)
+    this.onShow()
+  },
   /**
    * 生命周期函数--监听页面显示
    */
   onShow() {
     // return
     const token = wx.getStorageSync('token')
+    const teamItemInfo = wx.getStorageSync('teamItemLogin')
+    if(!teamItemInfo||teamItemInfo.length==0||JSON.stringify(teamItemInfo) === '{}' ){
+      this.setData({
+        isTeamItem:false,
+      })
+    }else{
+      this.setData({
+        isTeamItem:true,
+        teamItemInfo:teamItemInfo
+      })
+    }
     if (token === "") {
       wx.redirectTo({
         url: '/pages/login/index',

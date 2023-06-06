@@ -4,6 +4,7 @@ var qcloud = require('../../vendor/wafer2-client-sdk/index')
 var config = require('../../api/config')
 var util = require('../../utils/util.js')
 var upFiles = require('../../utils/upFiles.js')
+import { checkEmpty, say } from "../../utils/util"
 import { baseUrl } from '../../api/config'
 import { request } from "../../api/index"
 Page({
@@ -26,7 +27,6 @@ Page({
     upFilesProgress: false,
     maxUploadLen: 6,
     isSelect: false,
-    uploadedPathArr:[],
     imageList:[],
     uploadImageList:[],//用于上传的图片
     src: "",        // 上传视频
@@ -401,11 +401,40 @@ Page({
      */
     chooseVideo: function() {
       var _this = this;
+    
       wx.chooseVideo({
-        success: function(res) {
+        
+        success:async (res)=>{
           _this.setData({
             src: res.tempFilePath,
           })
+          wx.uploadFile({
+            filePath: res.tempFilePath,
+            name: 'files',
+            url: `${baseUrl}/upload/image`,
+            header:{
+             "c-access-token": wx.getStorageSync('token') || ''
+            },
+            success:(res_1)=>{
+              console.log('视频上传成功')
+              const data = JSON.parse(res_1.data).data
+               this.setData({
+                 imageList:[...this.data.imageList,data.full_url],
+                 uploadImageList:[...this.data.uploadImageList,data.url]
+               })
+            },
+            fail(err){
+              console.log(err)
+              console.log('接口调用失败')
+            }
+          })
+       },
+        fail: function () {
+          wx.showToast({
+            title: '图片上传失败',
+            icon: 'none'
+          })
+          return;
         }
       })
     },
@@ -450,25 +479,32 @@ Page({
       }
     },
 async confirm(){
-  
+  if(!checkEmpty(this.data.textarea)) return say("内容不可为空") 
+  if(!checkEmpty(this.data.subInfo.name)||!this.data.subInfo.name) return say("姓名不可为空") 
+  if(!checkEmpty(this.data.subInfo.phone)||!this.data.subInfo.phone) return say("手机号不可为空") 
+  if(!checkEmpty(this.data.address)||!this.data.address) return say("位置不可为空") 
   let res = await request("post","/feedback/submit",{
-    detail:this.data.detail,
+    username:this.data.subInfo.name,
+    phone:this.data.subInfo.phone,
+    address:this.data.region.join(),
     type_name:this.data.shpArray[this.data.index],
-    images:this.data.uploadImageList,
-    detail:this.data.textarea
+    detail:this.data.textarea,
+    image:this.data.uploadImageList,
+    is_anonymouns:this.data.isSelect
+    // video
   })
   if(res.code != 200) return
   wx.showModal({
     title: '温馨提示',
     content: '意见提交成功',
     complete: (res) => {
-      // if (res.cancel) {
-      //   wx.navigateBack()
-      // }
+      if (res.cancel) {
+        wx.navigateBack()
+      }
   
-      // if (res.confirm) {
-      //   wx.navigateBack()
-      // }
+      if (res.confirm) {
+        wx.navigateBack()
+      }
     }
   })
 },

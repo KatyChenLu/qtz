@@ -67,6 +67,8 @@ Page({
     })
     this.data.addressListData[index].isDefault = true;
     this.data.addressListData[index].selected = true
+
+    wx.setStorageSync('teamItemLogin',  this.data.addressListData[index])
     // 将选中的默认地址 放置第一位
     let address = this.data.addressListData.splice(index,1)[0] // 将选中的地址单独分割出来
     this.data.addressListData = [address,...this.data.addressListData]
@@ -75,9 +77,7 @@ Page({
     })
     wx.setStorageSync('address', this.data.addressListData)
     
-    if(this.data.from == 'order'){
-      wx.navigateBack()
-    }
+    wx.navigateBack()
   },
 
   // 删除收货地址点击事件

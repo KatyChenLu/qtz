@@ -3,7 +3,7 @@
   <view class="weui-cell">
     <view class="weui-label label-txt">姓名</view>
     <view class="weui-cell__bd">
-      <input class="weui-input input-txt" value="{{address.name}}" placeholder="组员姓名"  placeholder-class="input-placeholder" bindinput="inputName"/>
+      <input class="weui-input input-txt" value="{{address.username}}" placeholder="组员姓名"  placeholder-class="input-placeholder" bindinput="inputName"/>
     </view>
   </view>
   <view class="weui-cell">
@@ -16,7 +16,7 @@
   <view class="weui-cell">
     <view class="weui-label label-txt">身份证号</view>
     <view class="weui-cell__bd">
-      <input type="text" class="weui-input input-txt" value="{{address.idnum}}" placeholder-class="input-placeholder" placeholder="组员身份证号"  bindinput="inputIdnum" />
+      <input type="text" class="weui-input input-txt" value="{{address.card}}" placeholder-class="input-placeholder" placeholder="组员身份证号"  bindinput="inputIdnum" />
     </view>
 
   </view>

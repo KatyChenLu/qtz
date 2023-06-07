@@ -1,3 +1,7 @@
+
+import {
+  request
+} from "../../../api/index"
 Page({
   data: {
     addressListData:[],
@@ -18,7 +22,7 @@ Page({
 
   },
   onShow: function () {
-    this.getAddressListData()
+    this.getItemInfo()
 
   },
 
@@ -94,9 +98,9 @@ Page({
   // 编辑收货地址点击事件
   clickEdit(e){
     let index = e.currentTarget.dataset.index;
-    let address = this.data.addressListData[index]
+    let info = this.data.addressListData[index]
     wx.navigateTo({
-      url: '/pages/mine/team/edit?address=' + JSON.stringify(address),
+      url: '/pages/mine/team/edit?info=' + JSON.stringify(info),
     })
   },
 
@@ -106,7 +110,17 @@ Page({
       url: '/pages/mine/team/edit'
     })
   },
-
+// 获取用户信息
+async getItemInfo() {
+  const data = {
+    page:'1'
+  }
+  let res = await request("get", "/user/groupList",data)
+  if (res.code != 200) return
+  this.setData({
+    addressListData:res.data.list
+  })
+},
   // 从缓存中获取收货地址
   getAddressListData(){
     let addressList = wx.getStorageSync('address') || []

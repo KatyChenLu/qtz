@@ -482,7 +482,8 @@ async confirm(){
   if(!checkEmpty(this.data.textarea)) return say("内容不可为空") 
   if(!checkEmpty(this.data.subInfo.name)||!this.data.subInfo.name) return say("姓名不可为空") 
   if(!checkEmpty(this.data.subInfo.phone)||!this.data.subInfo.phone) return say("手机号不可为空") 
-  if(!checkEmpty(this.data.address)||!this.data.address) return say("位置不可为空") 
+  if(this.data.region.length==0) return say("位置不可为空") 
+  if(!this.data.index||this.data.shpArray[this.data.index].length==0) return say("随手拍类型不可为空") 
   let res = await request("post","/feedback/submit",{
     username:this.data.subInfo.name,
     phone:this.data.subInfo.phone,

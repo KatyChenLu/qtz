@@ -25,6 +25,13 @@
           "pathName": "pages/mine/score/index",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/mine/index",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
         }
       ]
     }

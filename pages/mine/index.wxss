@@ -166,7 +166,7 @@
 
 .mine .user-content .userinfo .bottom .check-score text {
   background-color: #1E948A;
-  padding: 15rpx 20rpx;
+  padding: 15rpx 18rpx;
   border-radius: 20rpx;
 }
 

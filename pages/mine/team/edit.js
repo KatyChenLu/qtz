@@ -1,20 +1,24 @@
 let that;
+
+import { request } from "../../../api/index"
+import { checkEmpty, say } from "../../../utils/util"
 Page({
   data: {
     address:{
-      id:0,
-      name:'',
-      mobile:'',
-      city:'',
-      street:''
+      // username:'',
+      // mobile:'',
+      // card:'',
+      username:'陈',
+      mobile:'18501610860',
+      card:'410928199512304022',
     }
   },
   onLoad: function (options) {
     that = this
     console.log('接受数据',options)
-    if(options.address){
+    if(options.info){
       this.setData({
-        address:JSON.parse(options.address)
+        address:JSON.parse(options.info)
       })
     }
 
@@ -26,7 +30,7 @@ Page({
 
   },
   inputName(e){
-    this.data.address.name = e.detail.value;
+    this.data.address.username = e.detail.value;
     this.setData({
       address:this.data.address
     })
@@ -38,7 +42,7 @@ Page({
     })
   },
   inputIdnum(e){
-    this.data.address.idnum = e.detail.value;
+    this.data.address.card = e.detail.value;
     this.setData({
       address:this.data.address
     })
@@ -78,11 +82,11 @@ Page({
   checkAddress(){
     let {address} = this.data
     let tip = ""
-    if(address.name.length == 0){
-      tip="请填写收货人姓名"
+    if(address.username.length == 0){
+      tip="请填写组员姓名"
     }
     else if(address.mobile.length == 0){
-      tip="请填写收货人手机号"
+      tip="请填写组员手机号"
     }
    
     else if(address.idnum.length == 0){
@@ -100,9 +104,17 @@ Page({
     }
 
   },
+  async clickAdd(){
 
+  let res = await request("post","/user/addGroup",{
+    username:this.data.address.username,
+    mobile:this.data.address.mobile,
+    card:this.data.address.card,
+  })
+  if(res.code != 200) return
+  },
   // 保存或添加收货地址
-  clickAdd(){
+  clickAdd1(){
     if(!this.checkAddress()){
       return
     }
@@ -136,7 +148,7 @@ Page({
     console.log('编辑地址的列表',addressList)
       for(let i in addressList){
         if(addressList[i].id == address.id){
-          addressList[i].name = address.name;
+          addressList[i].username = address.username;
           addressList[i].mobile = address.mobile;
           addressList[i].city = address.city;
           addressList[i].street = address.street

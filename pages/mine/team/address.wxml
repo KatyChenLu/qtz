@@ -1,7 +1,7 @@
 <!-- 没有收货地址布局 -->
 <view wx:if="{{addressListData.length == 0}}" class="address-none">
   <view class="none-container">
-    <image src="../../dist/images/address.png"></image>
+    <!-- <image src="../../dist/images/address.png"></image> -->
     <text class="tip">你还没有组员，点击下方按钮添加吧</text>
   </view>
 </view>
